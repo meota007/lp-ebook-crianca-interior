@@ -1,602 +1,908 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Acolhendo sua Criança Interior — Guia + áudio</title>
-<meta name="description" content="Guia em PDF de 87 páginas + áudio de auto-hipnose para reconhecer, curar e reescrever as reações que vêm da infância. Método Fios Invisíveis.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --azul:#0e70cc;
-  --azul-hover:#0a5bb0;
-  --azul-claro:#e8f2fc;
-  --azul-medio:#7fb9f0;
-  --navy:#082a4d;
-  --navy-2:#0b3a6e;
-  --navy-3:#061f3a;
-  --bg:#f6f9fd;
-  --ink:#10243b;
-  --muted:#4e6478;
-  --border:#dfe8f2;
-  --radius:16px;
-  --shadow-card:0 1px 2px rgba(8,42,77,.05),0 10px 30px rgba(8,42,77,.08);
-  --shadow-deep:0 18px 50px rgba(8,42,77,.28);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.22;margin:0 0 14px;letter-spacing:-.02em}
-h2{font-size:clamp(24px,3.6vw,32px)}
-h3{font-size:18px}
-p{margin:0 0 14px}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-section{padding:56px 0}
-a{color:var(--azul)}
-:focus-visible{outline:3px solid var(--azul-medio);outline-offset:3px;border-radius:6px}
-
-/* progresso de leitura */
-#progresso{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--azul-medio),var(--azul));z-index:99;transition:width .1s linear}
-
-/* revelação */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-
-/* selo (nunca com cara de botão) */
-.selo{display:inline-block;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(127,185,240,.45);color:#bfe0ff}
-.selo-claro{display:inline-block;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;background:var(--azul-claro);border:1px solid #b5d4f3;color:#0a4f96}
-
-/* CTA */
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#22b45e,#15803d 60%);color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:17px;text-decoration:none;padding:17px 30px;border-radius:14px;border:none;cursor:pointer;text-align:center;box-shadow:0 10px 26px rgba(21,128,61,.42),inset 0 1px 0 rgba(255,255,255,.22);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
-.cta:hover{background:linear-gradient(135deg,#1da452,#166534 60%);transform:translateY(-2px);box-shadow:0 14px 32px rgba(21,128,61,.5),inset 0 1px 0 rgba(255,255,255,.22)}
-.cta:active{transform:translateY(0)}
-.cta svg{flex:none}
-.cta-centro{text-align:center;margin:18px 0 8px}
-.linha-cta{font-size:13.5px;color:var(--muted);text-align:center;margin:10px 0 0}
-.linha-cta svg{vertical-align:-3px;margin-right:5px}
-
-/* ponte (bloco-04): bloco compacto e centralizado */
-#bloco-04{padding:32px 0}
-#bloco-04 .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
-#bloco-04 .lead{margin:0 0 16px;max-width:54ch}
-#bloco-04 .cta{margin:0}
-
-/* HERO */
-.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--navy-3) 0%,var(--navy) 55%,#0d3f75 100%);color:#fff;padding:84px 0 72px}
-.aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none}
-.aurora-a{width:560px;height:560px;background:radial-gradient(circle,rgba(14,112,204,.75),transparent 65%);top:-180px;left:-140px;animation:deriva 14s ease-in-out infinite alternate}
-.aurora-b{width:480px;height:480px;background:radial-gradient(circle,rgba(60,160,255,.5),transparent 65%);bottom:-220px;right:-120px;animation:deriva 18s ease-in-out infinite alternate-reverse}
-@keyframes deriva{from{transform:translate(0,0) scale(1)}to{transform:translate(60px,40px) scale(1.12)}}
-.grade{position:absolute;inset:0;background-image:linear-gradient(rgba(127,185,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,185,240,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 75%);pointer-events:none}
-.hero .wrap{position:relative}
-.hero h1{font-size:clamp(30px,5.4vw,44px);color:#fff;margin:18px 0 14px}
-.hero h1 .grad{background:linear-gradient(100deg,#8fc5f8,#4da2ee 55%,#2f8ce6);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-grid{max-width:840px;margin:0 auto;text-align:center}
-.hero p.sub{font-size:19px;color:#d7e7f8;max-width:56ch;margin-left:auto;margin-right:auto}
-.hero p.promessa{font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(18px,2.6vw,21px);color:#bfe0ff;margin:-2px 0 14px}
-.hero .ticks{max-width:58ch;margin:0 auto;padding:0}
-.hero .ticks li{text-align:left}
-.hero .ticks li::before{color:#5fb0f5}
-.hero .linha-cta{color:#9dbcd9}
-@keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.video-embed{position:relative;aspect-ratio:16/9;width:100%;max-width:680px;margin:32px auto 28px;border-radius:18px;overflow:hidden;border:1px solid rgba(127,185,240,.25);box-shadow:var(--shadow-deep);background:#071e38}
-.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-fachada{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#071e38;font:inherit}
-.video-fachada img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.video-fachada .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#1181e6,var(--azul));display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(2,12,26,.55);animation:pulsa 2.4s infinite}
-.video-fachada:hover .play{transform:translate(-50%,-50%) scale(1.06)}
-.video-fachada:focus-visible{outline:3px solid #6cb4f7;outline-offset:-3px}
-@keyframes pulsa{0%{box-shadow:0 12px 30px rgba(2,12,26,.55),0 0 0 0 rgba(31,141,240,.45)}70%{box-shadow:0 12px 30px rgba(2,12,26,.55),0 0 0 22px rgba(31,141,240,0)}100%{box-shadow:0 12px 30px rgba(2,12,26,.55),0 0 0 0 rgba(31,141,240,0)}}
-
-/* ticks */
-.ticks{list-style:none;padding:0;margin:6px 0 0}
-.ticks li{padding:9px 0 9px 32px;position:relative}
-.ticks li::before{content:"";position:absolute;left:2px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--azul-claro) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%230e70cc" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center no-repeat}
-
-/* bandas */
-.banda{background:linear-gradient(180deg,#eef5fc,#f6f9fd)}
-.banda-forte{background:linear-gradient(180deg,#e2eefb,#eef5fc)}
-
-/* bloco 02 */
-.lead{font-size:19px;color:var(--ink)}
-.inimigo{background:#fff;border:1px solid var(--border);border-left:none;border-radius:0 var(--radius) var(--radius) 0;box-shadow:var(--shadow-card);padding:22px 24px;margin:26px 0;position:relative}
-.inimigo::before{content:"";position:absolute;left:-14px;top:14px;bottom:14px;width:6px;border-radius:6px;background:linear-gradient(180deg,var(--azul-medio),var(--azul))}
-.inimigo .rotulo{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);margin-bottom:8px}
-.inimigo p{margin:0}
-
-/* depoimentos */
-.dep{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:22px 24px 18px;margin:18px 0;position:relative}
-.dep::before{content:"\201C";position:absolute;top:-2px;right:16px;font-family:'Sora',sans-serif;font-size:64px;line-height:1;color:var(--azul-claro);pointer-events:none}
-.dep p{margin:0}
-.dep .quem{font-family:'Sora',sans-serif;font-weight:700;color:var(--azul)}
-.fila-resultado{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.chip{font-size:12.5px;font-weight:600;background:var(--azul-claro);color:#0a4f96;border-radius:999px;padding:5px 12px}
-
-/* método */
-.metodo-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-.etapa{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));color:#fff;border-radius:18px;padding:24px 22px;box-shadow:var(--shadow-deep);position:relative;overflow:hidden}
-.etapa::after{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(31,141,240,.35),transparent 70%)}
-.etapa .num{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:#6cb4f7;display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.etapa h3{color:#fff;font-size:20px;margin:0 0 8px}
-.etapa p{color:#cfe2f5;font-size:15px;margin:0}
-.sumario{margin:28px 0 0;border-top:1px solid var(--border)}
-.capitulo{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 4px;border-bottom:1px solid var(--border);align-items:start}
-.capitulo .n{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:var(--azul);background:var(--azul-claro);border-radius:12px;width:46px;height:46px;display:flex;align-items:center;justify-content:center}
-.capitulo strong{font-family:'Sora',sans-serif;font-size:16px}
-.capitulo p{margin:2px 0 0;font-size:15px;color:var(--muted)}
-.cta-mid{margin:22px 0 6px;padding:24px;background:linear-gradient(160deg,var(--navy-2),var(--navy-3));color:#fff;border-radius:18px;box-shadow:var(--shadow-deep);text-align:center;position:relative;overflow:hidden}
-.cta-mid::before{content:"";position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(31,141,240,.35),transparent 70%);pointer-events:none}
-.cta-mid p{position:relative;margin:0 0 16px;font-family:'Sora',sans-serif;font-weight:600;font-size:16.5px}
-.cta-mid p small{display:block;font-weight:400;font-family:'Inter',sans-serif;font-size:13.5px;color:#9dbcd9;margin-top:4px}
-/* capa mini no sumário */
-.capa-mini{display:flex;gap:22px;align-items:center;margin:28px 0 0}
-.capa-mini img{width:106px;flex:none;border-radius:3px 9px 9px 3px;box-shadow:-10px 14px 28px rgba(8,42,77,.28),inset 4px 0 8px rgba(255,255,255,.25);transform:perspective(700px) rotateY(-10deg)}
-.capa-mini p{margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:16.5px}
-
-/* checklist de autorreconhecimento (compromisso e coerência) */
-.ck{display:flex;gap:12px;align-items:flex-start;padding:10px 2px;border-bottom:1px dashed var(--border);cursor:pointer;-webkit-user-select:none;user-select:none}
-.ck:last-of-type{border-bottom:none}
-.ck input{position:absolute;opacity:0;width:1px;height:1px}
-.ck .box{flex:none;width:21px;height:21px;border-radius:6px;border:2px solid #9cc4ea;background:#fff;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:background .15s ease,border-color .15s ease}
-.ck .box svg{opacity:0;transform:scale(.5);transition:opacity .15s ease,transform .15s ease}
-.ck input:checked ~ .box{background:var(--azul);border-color:var(--azul)}
-.ck input:checked ~ .box svg{opacity:1;transform:scale(1)}
-.ck:hover .box{border-color:var(--azul)}
-.ck input:focus-visible ~ .box{outline:3px solid var(--azul-medio);outline-offset:2px}
-.ck .txt{font-size:15.5px}
-.ck input:checked ~ .txt{font-weight:600}
-.comp-mensagem{display:none;margin-top:14px;padding:13px 16px;background:var(--azul-claro);border:1px solid #b5d4f3;border-radius:12px;font-size:14.5px;color:#0a3a6e}
-.comp-mensagem.on{display:block;animation:surge .3s ease}
-.comp-mensagem strong{font-family:'Sora',sans-serif}
-@keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-/* intenção de implementação */
-.intencao{display:flex;gap:10px;align-items:flex-start;margin:10px 0 0;padding-top:10px;border-top:1px dashed #b5d4f3;font-size:15px;color:#0a3a6e;text-align:left}
-/* âncora de preço riscada */
-.stack .preco s{font-family:'Sora',sans-serif;font-size:24px;color:#7ea6cd;margin-right:8px;letter-spacing:-.01em}
-.fechar .preco s{color:#8fb3d6}
-
-/* para quem */
-.comparativo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
-.comp{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:22px}
-.comp h3{display:flex;align-items:center;gap:10px;font-size:17px}
-.comp .ic{width:30px;height:30px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center}
-.comp-positiva .ic{background:#e3f4ec}
-.comp-negativa .ic{background:#fbe9e7}
-.comp ul{list-style:none;padding:0;margin:0}
-.comp li{padding:8px 0 8px 28px;position:relative;font-size:15.5px;border-bottom:1px dashed var(--border)}
-.comp li:last-child{border-bottom:none}
-.comp-positiva li::before{content:"";position:absolute;left:2px;top:12px;width:16px;height:16px;border-radius:50%;background:#e3f4ec url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="%23137a4a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center no-repeat}
-.comp-negativa li::before{content:"";position:absolute;left:2px;top:12px;width:16px;height:16px;border-radius:50%;background:#fbe9e7 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="%23b3402f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>') center no-repeat}
-
-/* o que você recebe */
-.recebe-grid{margin:22px 0}
-.item-recebe{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:22px}
-.item-recebe .topo{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.item-recebe .ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1181e6,var(--azul));color:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 8px 18px rgba(14,112,204,.3)}
-.item-recebe h3{margin:0;font-size:16.5px}
-.item-recebe .valor{margin-top:10px;font-family:'Sora',sans-serif;font-weight:700;color:var(--azul)}
-.divisor-entrega{height:0;border-top:1px dashed #b5d4f3;margin:18px 0}
-.acesso-imediato{background:var(--azul-claro);border:1px solid #b5d4f3;border-radius:14px;padding:16px 18px;margin-top:6px}
-.acesso-imediato p{margin:0;font-size:15.5px;color:#0a3a6e;text-align:left}
-.linha-acesso{display:flex;gap:10px;align-items:flex-start}
-.acesso-imediato p svg{flex:none;margin-top:2px}
-.acesso-imediato p span{flex:1}
-
-/* bônus */
-.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0}
-.bonus-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);overflow:hidden;display:flex;flex-direction:column}
-.bonus-card img{width:100%;height:150px;object-fit:cover;display:block}
-.bonus-card .corpo{padding:18px;display:flex;flex-direction:column;flex:1}
-.bonus-card h3{font-size:16px;margin:0 0 8px}
-.bonus-card p{font-size:14.5px;color:var(--muted);flex:1}
-.bonus-card .rodape{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border)}
-.bonus-card .valor{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--muted);text-decoration:line-through}
-.pill-incluso{font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:linear-gradient(135deg,#1181e6,var(--azul));color:#fff;border-radius:999px;padding:5px 12px}
-.bonus-card .trava{font-size:13px;color:#0a4f96;background:var(--azul-claro);border-radius:8px;padding:6px 10px;margin:8px 0 0;font-style:italic}
-
-/* oferta / stack */
-.stack{position:relative;background:linear-gradient(165deg,var(--navy-2) 0%,var(--navy-3) 70%);color:#fff;border-radius:24px;padding:36px 30px;box-shadow:var(--shadow-deep);overflow:hidden}
-.stack::before{content:"";position:absolute;top:-120px;left:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(31,141,240,.4),transparent 70%);pointer-events:none}
-.stack h2{color:#fff;text-align:center;position:relative}
-.stack .sub-stack{text-align:center;color:#b9d3ec;position:relative;margin-top:-6px}
-.oferta{display:flex;gap:16px;align-items:flex-end;justify-content:center;margin:28px 0 10px;flex-wrap:wrap;position:relative}
-.oferta .livro{width:172px;flex:none;animation:flutua 6s ease-in-out infinite}
-.oferta .livro img{width:100%;border-radius:5px 11px 11px 5px;box-shadow:-14px 20px 42px rgba(2,12,26,.55);transform:perspective(900px) rotateY(-13deg)}
-.tile-bonus{width:118px;height:220px;flex:none;display:flex;flex-direction:column;border-radius:14px;padding:12px 8px;text-align:center;color:#fff;box-shadow:-8px 12px 26px rgba(2,12,26,.5);border:1px solid rgba(255,255,255,.16)}
-.tile-bonus img{width:100%;border-radius:9px;margin-bottom:8px;aspect-ratio:1/1;object-fit:cover;flex:none}
-.tile-bonus strong{display:block;font-family:'Sora',sans-serif;font-size:12.5px;margin-top:2px}
-.tile-bonus small{font-size:11px;color:#cfe2f5;margin-top:auto}
-.tile-bonus .selo-tile{font-size:10px;font-weight:800;letter-spacing:.1em;background:rgba(255,255,255,.18);border-radius:20px;padding:2px 10px;display:inline-block;margin-bottom:6px}
-.tb1{background:linear-gradient(160deg,#1181e6,#0a4f96)}
-.tb2{background:linear-gradient(160deg,#3a63b8,#223f7e)}
-.tb3{background:linear-gradient(160deg,#0e70cc,#062d55)}
-.stack table{width:100%;border-collapse:collapse;margin:24px 0 6px;position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(127,185,240,.22);border-radius:14px;overflow:hidden}
-.stack td{padding:13px 18px;border-bottom:1px solid rgba(127,185,240,.16);font-size:15.5px;color:#e2eefb}
-.stack tr:last-child td{border-bottom:none}
-.stack td:last-child{text-align:right;white-space:nowrap;font-family:'Sora',sans-serif;font-weight:600}
-.stack tr.riscado td{text-decoration:none;color:#9dbcd9}
-.stack tr.riscado td s{color:#7ea6cd}
-.stack .total td{font-weight:800;color:#fff;background:rgba(14,112,204,.22);font-size:17px}
-.stack .preco{text-align:center;font-size:16px;color:#b9d3ec;margin:16px 0 6px;position:relative}
-.stack .preco strong{font-family:'Sora',sans-serif;font-size:46px;color:#fff;letter-spacing:-.02em}
-.stack .preco .ancora{display:block;font-size:13.5px;color:#9dbcd9}
-.stack .cta{margin-top:10px;position:relative}
-.selo-vagas{display:flex;align-items:center;gap:10px;justify-content:center;position:relative;margin:0 0 20px;color:#ffe1a8;font-size:14px;font-weight:600}
-.selo-vagas .dot{width:8px;height:8px;border-radius:50%;background:#ffd166;flex:none;animation:pulsa-s 1.8s infinite}
-@keyframes pulsa-s{0%,100%{opacity:1}50%{opacity:.35}}
-
-/* suporte + garantia */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card-simples{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:24px}
-.card-simples h3{display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px}
-.card-simples p{font-size:15.5px;color:var(--muted);margin:0}
-#bloco-11{padding-top:32px}
-.suporte-livre{margin:0 0 22px;text-align:center}
-.suporte-livre h3{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 10px}
-.suporte-livre p{margin:0 auto;font-size:15.5px;color:var(--muted);max-width:62ch}
-.garantia-secao{text-align:center}
-.garantia-secao .selo-garantia{display:block;width:270px;max-width:100%;margin:0 auto 18px;filter:drop-shadow(0 12px 24px rgba(8,42,77,.15))}
-.garantia-secao p{max-width:58ch;margin:0 auto 12px;text-align:left}
-
-/* autor */
-.autor{display:flex;gap:24px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:26px}
-.autor img{width:132px;height:132px;object-fit:cover;border-radius:50%;flex:none;border:4px solid var(--azul-claro);box-shadow:0 10px 24px rgba(8,42,77,.15)}
-.autor p{margin:0;font-size:15.5px;color:var(--muted)}
-.autor strong{color:var(--ink);font-family:'Sora',sans-serif}
-
-/* faq */
-.faq details{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-card);margin:12px 0;overflow:hidden}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 20px;font-family:'Sora',sans-serif;font-weight:600;font-size:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary .mais{flex:none;width:26px;height:26px;border-radius:50%;background:var(--azul-claro);color:var(--azul);display:flex;align-items:center;justify-content:center;font-weight:800;transition:transform .25s ease}
-.faq details[open] summary .mais{transform:rotate(45deg);background:var(--azul);color:#fff}
-.faq details p{padding:0 20px 18px;margin:0;font-size:15.5px;color:var(--muted)}
-
-/* fechar */
-.fechar{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--navy-3),var(--navy-2));color:#fff;padding:64px 0;text-align:center;margin-top:8px}
-.fechar::before{content:"";position:absolute;bottom:-160px;left:50%;transform:translateX(-50%);width:640px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(14,112,204,.5),transparent 70%);pointer-events:none}
-.fechar h2{color:#fff}
-.fechar p{color:#cfe2f5;position:relative}
-.fechar .preco{font-size:16px}
-.fechar .preco strong{font-family:'Sora',sans-serif;font-size:44px;color:#fff}
-.fechar .pequeno{color:#8fb3d6;font-size:13px;max-width:60ch;margin:18px auto 0;position:relative}
-.pequeno{font-size:13px;color:var(--muted)}
-
-/* barra fixa mobile */
-#barra-fixa{position:fixed;left:0;right:0;bottom:0;z-index:98;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--border);box-shadow:0 -8px 30px rgba(8,42,77,.12);padding:10px 14px;display:none;gap:12px;align-items:center;transform:translateY(110%);transition:transform .3s ease}
-#barra-fixa.on{transform:none}
-#barra-fixa .info{flex:1;min-width:0}
-#barra-fixa .info strong{display:block;font-family:'Sora',sans-serif;font-size:15px;color:var(--ink)}
-#barra-fixa .info small{color:var(--muted);font-size:12px}
-#barra-fixa .cta{padding:12px 18px;font-size:14.5px;white-space:nowrap}
-@media(max-width:767px){#barra-fixa{display:flex}}
-
-/* responsivo */
-@media(max-width:860px){
-  .hero h1{font-size:clamp(34px,9.5vw,42px);line-height:1.15}
-  .capa-mini{flex-direction:column;text-align:center;gap:14px}
-  .capa-mini img{transform:none}
-  .metodo-cards{grid-template-columns:1fr}
-  .comparativo{grid-template-columns:1fr}
-  .bonus-grid{grid-template-columns:1fr}
-  .duo{grid-template-columns:1fr}
-  .autor{flex-direction:column;text-align:center}
-  .autor img{margin:0 auto}
-  .stack{padding:28px 20px}
-  section{padding:44px 0}
-  .hero{padding:56px 0 52px}
-}
-@media(min-width:861px){.hero-grid .cta{width:auto}}
-@media(max-width:767px){.hero-grid .cta{width:100%}.cta-mid .cta{width:100%}#bloco-04 .cta{width:100%}}
-</style>
+<!DOCTYPE html><html lang="pt-BR" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Acolhendo sua Criança Interior — Método Fios Invisíveis</title>
+  <meta name="description" content="Guia em PDF de 87 páginas + áudio de auto-hipnose para reconhecer, curar e reescrever as reações que vêm da infância. Método Fios Invisíveis.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent-sky': '#60A5FA',
+        'accent-gold': '#D97706',
+        'navy-deep': '#071426',
+        'navy-card': '#0F2442',
+        'navy-border': '#1E3A5F',
+        'on-navy': '#F1F5F9',
+        'on-navy-muted': '#94A3B8',
+        'emerald-cta': '#15803D',
+        'emerald-cta-hover': '#166534',
+        'on-emerald': '#FFFFFF',
+        'light-primary': '#0B1D36',
+        'light-on-primary': '#FFFFFF',
+        'light-secondary': '#006D30',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#DCFCE7',
+        'light-on-secondary-container': '#005323',
+        'light-error': '#BA1A1A',
+        'light-background': '#F8F9FF',
+        'light-on-background': '#0D1C2E',
+        'light-surface': '#FFFFFF',
+        'light-surface-container-low': '#EFF4FF',
+        'light-surface-container': '#E6EEFF',
+        'light-on-surface': '#0D1C2E',
+        'light-on-surface-variant': '#44474D',
+        'light-outline': '#75777E',
+        'light-outline-variant': '#CBD5E1',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Crimson Pro"', 'sans-serif'],
+        'headline': ['"Crimson Pro"', 'sans-serif'],
+        'title': ['"Commissioner"', 'sans-serif'],
+        'body': ['"Commissioner"', 'sans-serif'],
+        'label': ['"Commissioner"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['56px', { lineHeight: '62px', letterSpacing: '-1px', fontWeight: '600' }],
+        'display-lg-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['30px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-sm': ['22px', { lineHeight: '30px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['16px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.8px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;family=Commissioner:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined{display:inline-block;width:1em;height:1em;line-height:1!important;box-sizing:content-box;overflow:hidden;white-space:nowrap;direction:ltr;vertical-align:middle}
+  /* degradê dos cards e footer escuros (como os cards navy do layout anterior) */
+  .grad-card{background:linear-gradient(160deg,#14335c 0%,#0f2442 45%,#071426 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+  .grad-secao{background:linear-gradient(180deg,#071426 0%,#0b1d36 100%)}
+  .grad-footer{background:linear-gradient(180deg,#071426 0%,#0f2442 100%)}
+  /* barra de progresso de leitura */
+  #progresso{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,#93C5FD,#2563EB);z-index:99;transition:width .1s linear}
+  /* revelação ao rolar */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+  /* barra fixa mobile */
+  #barra-fixa{position:fixed;left:0;right:0;bottom:0;z-index:98;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--x,#CBD5E1);border-top-color:#CBD5E1;box-shadow:0 -8px 30px rgba(7,20,38,.14);padding:10px 16px;display:flex;gap:12px;align-items:center;transform:translateY(110%);transition:transform .3s ease}
+  #barra-fixa.on{transform:none}
+  #barra-fixa .cta{display:none}
+  @media(min-width:768px){#barra-fixa .cta{display:inline-flex}}
+  /* mensagem do checklist */
+  #mensagem-reconhecimento{transition:opacity .35s ease,transform .35s ease}
+  #mensagem-reconhecimento.off{display:none}
+  </style>
 </head>
-<body>
+<body class="bg-light-background text-light-on-background font-body antialiased">
 
 <div id="progresso" aria-hidden="true"></div>
 
-<section id="hero" class="hero" data-od-id="hero">
-  <div class="aurora aurora-a" aria-hidden="true"></div>
-  <div class="aurora aurora-b" aria-hidden="true"></div>
-  <div class="grade" aria-hidden="true"></div>
-  <div class="wrap hero-grid" data-od-id="hero-conteudo">
-      <h1 data-od-id="hero-titulo">Você reage ao passado <span class="grad">sem perceber</span></h1>
-      <p class="promessa" data-od-id="hero-promessa">Descubra como romper os padrões da sua infância.</p>
-      <p class="sub">A explosão desproporcional, o medo de desagradar, o padrão que se repete nos relacionamentos. Nada disso nasce no presente. Nasce em ecos antigos que você nunca aprendeu a nomear.</p>
-      <div class="video-embed" data-od-id="hero-vsl">
-        <button class="video-fachada" type="button" data-yt="P21vyxvQqc0" aria-label="Reproduzir vídeo: Aula 00 — Apresentação, Introdução ao Autoconhecimento">
-          <img src="assets/vsl-thumb.jpg" width="1280" height="720" alt="" fetchpriority="high">
-          <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
-        </button>
+  <div class="flex flex-col">
+
+    <!-- HERO (navy profundo) -->
+    <header id="hero" class="bg-navy-deep text-on-navy">
+      <nav aria-label="Navegação principal" class="max-w-6xl mx-auto px-page-margin py-gutter-lg flex items-center justify-between gap-gutter-md border-b border-navy-border/60">
+        <a href="#" class="flex items-center gap-gutter-sm text-on-navy">
+          <span class="material-symbols-outlined text-accent-sky text-headline-sm" aria-hidden="true">auto_awesome</span>
+          <span class="font-headline text-title-md text-on-navy">Fios Invisíveis</span>
+        </a>
+        <div class="hidden md:flex items-center gap-gutter-xl">
+          <a href="#origem" class="font-body text-body-sm text-on-navy-muted hover:text-on-navy transition-colors duration-state-change">A Origem</a>
+          <a href="#metodo" class="font-body text-body-sm text-on-navy-muted hover:text-on-navy transition-colors duration-state-change">O Método</a>
+          <a href="#oferta" class="font-body text-body-sm text-on-navy-muted hover:text-on-navy transition-colors duration-state-change">O Guia</a>
+          <a href="#faq" class="font-body text-body-sm text-on-navy-muted hover:text-on-navy transition-colors duration-state-change">Dúvidas</a>
+        </div>
+        <a href="#oferta" class="inline-flex items-center justify-center px-gutter-md py-gutter-sm rounded-DEFAULT bg-emerald-cta text-on-emerald hover:bg-emerald-cta-hover transition-colors duration-state-change">
+          <span class="font-label text-label-md">Acessar guia</span>
+        </a>
+      </nav>
+
+      <div class="max-w-6xl mx-auto px-page-margin py-section grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+        <div class="lg:col-span-6 flex flex-col gap-gutter-lg" data-od-id="hero-conteudo">
+          <div class="flex flex-col gap-gutter-md">
+            <span class="font-label text-label-sm text-accent-sky uppercase">Guia Acolhendo sua Criança Interior</span>
+            <h1 data-od-id="hero-titulo" class="font-display text-display-lg-mobile md:text-display-lg text-on-navy text-balance">
+              Você reage ao passado <span class="italic text-accent-sky">sem perceber</span>
+            </h1>
+            <p data-od-id="hero-promessa" class="font-title text-title-md text-on-navy/90 text-pretty">
+              Descubra como romper os padrões da sua infância.
+            </p>
+            <p class="font-body text-body-md text-on-navy-muted max-w-prose text-pretty">
+              A explosão desproporcional, o medo de desagradar, o padrão que se repete nos relacionamentos. Nada disso nasce no presente. Nasce em ecos antigos que você nunca aprendeu a nomear.
+            </p>
+          </div>
+
+          <ul class="flex flex-col gap-gutter-sm">
+            <li class="flex items-start gap-gutter-sm">
+              <span class="material-symbols-outlined text-accent-sky text-title-md shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+              <span class="font-body text-body-sm text-on-navy/90 text-pretty">Quem vive pedindo desculpas por reagir demais encontra a origem da reação e responde com calma</span>
+            </li>
+            <li class="flex items-start gap-gutter-sm">
+              <span class="material-symbols-outlined text-accent-sky text-title-md shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+              <span class="font-body text-body-sm text-on-navy/90 text-pretty">Quem diz sim para tudo aprende a reconhecer o limite e volta a se colocar na própria agenda</span>
+            </li>
+            <li class="flex items-start gap-gutter-sm">
+              <span class="material-symbols-outlined text-accent-sky text-title-md shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+              <span class="font-body text-body-sm text-on-navy/90 text-pretty">Quem repete os mesmos ciclos entende o roteiro antigo e escreve um novo, no papel</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-col items-start gap-gutter-sm pt-gutter-xs">
+            <a href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="hero-cta" class="inline-flex items-center justify-center gap-gutter-sm px-gutter-xl py-gutter-md rounded-DEFAULT bg-emerald-cta text-on-emerald font-label hover:bg-emerald-cta-hover transition-colors duration-state-change shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-sky">
+              <span class="font-label text-label-lg">Quero entender minhas reações</span>
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+            </a>
+            <p class="font-body text-body-sm text-on-navy-muted flex items-center gap-gutter-xs">
+              <span class="material-symbols-outlined text-body-md text-accent-gold" aria-hidden="true">verified_user</span>
+              <span>Compra segura · Garantia incondicional de 7 dias</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6" data-od-id="hero-vsl">
+          <div class="grad-card border border-navy-border rounded-xl p-gutter-sm shadow-2xl">
+            <div class="relative rounded-md overflow-hidden aspect-video bg-navy-deep">
+              <button class="video-fachada block w-full h-full relative border-0 p-0 cursor-pointer bg-navy-deep" type="button" data-yt="P21vyxvQqc0" aria-label="Reproduzir vídeo: Aula 00 — Apresentação, Introdução ao Autoconhecimento">
+                <img src="assets/vsl-thumb.jpg" width="1280" height="720" alt="" class="absolute inset-0 w-full h-full object-cover">
+                <span class="absolute inset-0 bg-navy-deep/35 flex items-center justify-center">
+                  <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-light-surface text-light-primary shadow-xl hover:bg-light-surface-container-low transition-colors duration-state-change">
+                    <span class="material-symbols-outlined text-headline-md" style="font-variation-settings:'FILL' 1;" aria-hidden="true">play_arrow</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <ul class="ticks">
-        <li>Quem vive pedindo desculpas por reagir demais encontra a origem da reação e responde com calma</li>
-        <li>Quem diz sim para tudo aprende a reconhecer o limite e volta a se colocar na própria agenda</li>
-        <li>Quem repete os mesmos ciclos entende o roteiro antigo e escreve um novo, no papel</li>
-      </ul>
-      <p class="cta-centro" style="margin:24px 0 0"><a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="hero-cta">Quero entender minhas reações
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
-      <p class="linha-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5fb0f5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Compra segura · Garantia incondicional de 7 dias</p>
-  </div>
-</section>
+    </header>
 
-<section id="bloco-02" data-od-id="gatilho-ferida"><div class="wrap">
-  <span class="selo-claro reveal">A origem</span>
-  <h2 class="reveal" style="margin-top:14px">O gatilho é de hoje. A ferida é de infância</h2>
-  <p class="lead reveal"><em>Você não explode pelo que aconteceu. Explode pelo que ficou.</em></p>
-  <div class="reveal">
-  <p>Você jurou que nunca gritaria como gritaram com você. Aí seu filho derrama o suco no sofá e a sua mão já bateu na mesa antes do pensamento chegar. Ele chora assustado, você pede desculpas com o peito apertado e à noite, na cama, vem o medo real: estou plantando nele a mesma ferida que carrego. <strong>O trauma não tratado não morre com você.</strong> Ele vaza nos gestos, no tom de voz, na impaciência, e a próxima geração aprende calada.</p>
-  <p>Ou então é no amor. Os rostos mudam, a história repete: no começo é cuidado, depois chega o medo de ser deixada, o ciúme das pequenas demoras, o teste disfarçado de drama. Quando ele se afasta para respirar, a profecia se confirma e mais um vai embora. <strong>O roteiro antigo escolhe os parceiros por você, muito antes do seu gosto pessoal opinar.</strong></p>
-  </div>
-  <div class="inimigo reveal" data-od-id="inimigo-callout">
-    <div class="rotulo">O inimigo aqui</div>
-    <p>A causa quase nunca está na cena atual. Na infância, cada repetição virou programação, e o presente só aperta o botão. O inimigo atende por um conselho famoso: <strong>supera isso, o passado já passou</strong>. Ele transforma ferida em defeito de caráter e vende positividade no lugar de compreensão. Quem segue esse conselho não resolve. Aprende a disfarçar melhor, e os filhos e os parceiros pagam a conta junto.</p>
-  </div>
-</div></section>
+    <main>
+      <!-- A ORIGEM -->
+      <section id="origem" class="bg-light-surface py-section" data-od-id="gatilho-ferida">
+        <div class="max-w-3xl mx-auto px-page-margin flex flex-col gap-gutter-lg">
+          <div class="flex flex-col gap-gutter-sm">
+            <span class="font-label text-label-sm text-light-secondary uppercase">A origem</span>
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-primary text-balance">
+              O gatilho é de hoje. A ferida é de infância
+            </h2>
+          </div>
 
-<section id="bloco-03" class="banda" data-od-id="depoimentos-caminho"><div class="wrap">
-  <span class="selo-claro reveal">Histórias reais</span>
-  <h2 class="reveal" style="margin-top:14px">Quem já atravessou esse caminho</h2>
-  <div class="dep reveal" data-od-id="dep-mariana">
-    <p><span class="quem">Mariana, 34.</span> Explodia com o filho por motivos pequenos e chorava de culpa depois. Em 3 semanas de leitura e exercícios, passou a <strong>pausar antes de reagir</strong> e descreve as noites em casa como <strong>tranquilas pela primeira vez em anos</strong>.</p>
-    <div class="fila-resultado"><span class="chip">Pausa antes de reagir</span><span class="chip">Noites tranquilas</span></div>
-  </div>
-  <div class="dep reveal" data-od-id="dep-carlos">
-    <p><span class="quem">Carlos, 41.</span> Dizia sim no trabalho até adoecer. Em 2 meses, identificou o padrão do apaziguador e <strong>negou dois projetos sem culpa</strong>, com a agenda <strong>sob controle</strong>.</p>
-    <div class="fila-resultado"><span class="chip">Padrão identificado</span><span class="chip">Agenda sob controle</span></div>
-  </div>
-</div></section>
+          <div class="flex flex-col gap-gutter-md text-light-on-surface-variant">
+            <p class="font-body text-body-lg text-light-primary text-pretty"><em>Você não explode pelo que aconteceu. Explode pelo que ficou.</em></p>
+            <p class="font-body text-body-md text-pretty">
+              Você jurou que nunca gritaria como gritaram com você. Aí seu filho derrama o suco no sofá e a sua mão já bateu na mesa antes do pensamento chegar. Ele chora assustado, você pede desculpas com o peito apertado e à noite, na cama, vem o medo real: estou plantando nele a mesma ferida que carrego. <strong class="font-semibold text-light-primary">O trauma não tratado não morre com você.</strong> Ele vaza nos gestos, no tom de voz, na impaciência, e a próxima geração aprende calada.
+            </p>
+            <p class="font-body text-body-md text-pretty">
+              Ou então é no amor. Os rostos mudam, a história repete: no começo é cuidado, depois chega o medo de ser deixada, o ciúme das pequenas demoras, o teste disfarçado de drama. Quando ele se afasta para respirar, a profecia se confirma e mais um vai embora. <strong class="font-semibold text-light-primary">O roteiro antigo escolhe os parceiros por você, muito antes do seu gosto pessoal opinar.</strong>
+            </p>
+          </div>
 
-<section id="bloco-04" data-od-id="ponte-metodo"><div class="wrap reveal">
-  <p class="lead">Quem se reconheceu até aqui já entendeu a origem. Falta o caminho de volta.</p>
-  <a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="ponte-cta">Quero ver o método completo
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  <p class="linha-cta">Guia de 87 páginas + áudio de 30 minutos · Garantia incondicional de 7 dias</p>
-</div></section>
+          <aside data-od-id="inimigo-callout" class="bg-light-surface-container-low border border-light-outline-variant/60 rounded-lg p-gutter-lg flex flex-col gap-gutter-sm">
+            <span class="font-label text-label-sm text-light-primary uppercase">O inimigo aqui</span>
+            <p class="font-body text-body-md text-light-on-surface text-pretty">
+              A causa quase nunca está na cena atual. Na infância, cada repetição virou programação, e o presente só aperta o botão. O inimigo atende por um conselho famoso: <strong class="font-semibold text-light-primary">supera isso, o passado já passou</strong>. Ele transforma ferida em defeito de caráter e vende positividade no lugar de compreensão. Quem segue esse conselho não resolve. Aprende a disfarçar melhor, e os filhos e os parceiros pagam a conta junto.
+            </p>
+          </aside>
+        </div>
+      </section>
 
-<section id="bloco-05" class="banda" data-od-id="metodo-fios"><div class="wrap">
-  <span class="selo-claro reveal">O método</span>
-  <h2 class="reveal" style="margin-top:14px">Método Fios Invisíveis: reconhecer, curar, perdoar, reescrever</h2>
-  <div class="reveal">
-  <p>O método parte de um mecanismo simples. Reações adultas desproporcionais são ecos de feridas antigas. Cada eco tem origem rastreável em um dos 5 tipos de trauma, um padrão repetido e uma crença instalada. <strong>Quando você reconhece o fio, entende a causa. Quando entende a causa, trata na origem em vez de brigar com o sintoma.</strong></p>
-  <p>Sem o método, a pessoa tenta esquecer, finge que está bem e repete o ciclo por anos. Com o método, ela mapeia as feridas em dias, aplica um exercício por etapa e acompanha a própria evolução em releituras. <strong>Antes: reagir no automático e pedir desculpas depois. Depois: pausar, nomear e escolher a resposta.</strong></p>
-  <p>O guia entrega isso em 87 páginas organizadas em 4 macroetapas, mais um áudio de 30 minutos que conduz a primeira experiência profunda. Leitura de 10 a 15 minutos por dia, exercícios com papel e caneta, aplicação imediata. <strong>Leitores que aplicam o exercício do diálogo relatam a primeira virada ainda na primeira semana</strong>, ao nomear em voz alta uma ferida carregada há décadas.</p>
-  </div>
-  <div class="metodo-cards">
-    <div class="etapa reveal" data-od-id="etapa-reconhecer">
-      <div class="num">ETAPA 1 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6cb4f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <h3>Reconhecer</h3>
-      <p>Mapear feridas, traumas, padrões e crenças com o diário e a escavação emocional.</p>
-    </div>
-    <div class="etapa reveal" data-od-id="etapa-curar">
-      <div class="num">ETAPA 2 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6cb4f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-      <h3>Curar</h3>
-      <p>Aplicar os 5 exercícios de conexão e as 6 técnicas de cura, da meditação à reeducação em 8 passos.</p>
-    </div>
-    <div class="etapa reveal" data-od-id="etapa-perdoar">
-      <div class="num">ETAPA 3 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6cb4f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-      <h3>Perdoar</h3>
-      <p>Atravessar as 4 etapas do perdão, inclusive o perdão a si mesmo, e instalar limites saudáveis.</p>
-    </div>
-    <div class="etapa reveal" data-od-id="etapa-reescrever">
-      <div class="num">ETAPA 4 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6cb4f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
-      <h3>Reescrever</h3>
-      <p>Redigir a nova narrativa em 6 passos, com metas claras e prática diária de saúde emocional.</p>
-    </div>
-  </div>
-  <div class="capa-mini reveal" data-od-id="sumario-capa-mini">
-    <img src="assets/capa2.jpg" alt="Capa do ebook Acolhendo sua Criança Interior" width="106" height="145" loading="lazy">
-    <p><strong>Capítulo por capítulo, o que tem dentro do Guia Acolhendo Sua Criança Interior.</strong></p>
-  </div>
-  <div class="sumario reveal" data-od-id="sumario-capitulos">
-    <div class="capitulo"><div class="n">1</div><div><strong>Introdução.</strong><p>O mapa da jornada: o que você vai reconhecer, curar e reescrever, e por que a cura é gradual e vale cada passo.</p></div></div>
-    <div class="capitulo"><div class="n">2</div><div><strong>Compreendendo a criança interior.</strong><p>O quarto da bagunça: cada risada e cada lágrima viraram fios da sua personalidade adulta, e ferida também pode ser curada.</p></div></div>
-    <div class="capitulo"><div class="n">3</div><div><strong>A jornada da autodescoberta.</strong><p>Os 5 tipos de trauma (negligência, abuso, violência presenciada, perda, ser diferente) e as 6 estratégias para reconhecer o seu: autoconsciência, diário, atenção plena, terapia, grupos de apoio e arte.</p></div></div>
-    <div class="capitulo"><div class="n">4</div><div><strong>Padrões e crenças.</strong><p>Os roteiros que se repetem (relacionamentos tóxicos, bloqueios, papéis familiares), o clima emocional da sua infância e as frases que viraram lei interna. Mais os 5 exercícios de conexão: foto, lugares, brincar, diário e regressão.</p></div></div>
-    <div class="capitulo"><div class="n">5</div><div><strong>Curando as feridas.</strong><p>Meditação da criança interior, reeducação em 8 passos, artes expressivas, afirmações, TCC/EMDR/somática explicadas e o manejo de raiva, medo e tristeza, um por um.</p></div></div>
-    <div class="capitulo"><div class="n">6</div><div><strong>O perdão.</strong><p>Perdão sem fraqueza em 4 etapas (decisão, entendimento, empatia, deixar ir, inclusive a si mesmo) mais meditação, atenção plena, oração, natureza e rituais.</p></div></div>
-    <div class="capitulo"><div class="n">7</div><div><strong>Nutrir e proteger.</strong><p>Autocompaixão em 7 passos, limites saudáveis (reconhecer, comunicar, sustentar) e relacionamentos que nutrem em vez de ferir.</p></div></div>
-    <div class="capitulo"><div class="n">8</div><div><strong>Reescrever sua história.</strong><p>A narrativa limitante em 6 passos, a nova história empoderadora e metas SMART com mentalidade de crescimento.</p></div></div>
-    <div class="capitulo"><div class="n">9</div><div><strong>Saúde emocional e técnicas avançadas.</strong><p>As 10 práticas diárias, resiliência em 7 estratégias, experiência somática, EMDR, IFS e o caminho dos traumas complexos.</p></div></div>
-    <div class="capitulo"><div class="n">10</div><div><strong>Transformação e conclusão.</strong><p>Celebrar marcos, atravessar os ciclos de cura e sair com o plano de vida contínua. Mais o chamado final: comece agora.</p></div></div>
-    <div class="cta-mid" data-od-id="capitulos-cta">
-      <p>Todo esse caminho, capítulo por capítulo, está dentro do guia<small>87 páginas + áudio de 30 minutos · garantia de 7 dias</small></p>
-      <a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ">Quero meu guia e meu áudio agora
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-  </div>
-</div></section>
+      <!-- HISTÓRIAS REAIS + PONTE -->
+      <section class="bg-light-surface-container-low py-section" data-od-id="depoimentos-caminho">
+        <div class="max-w-5xl mx-auto px-page-margin flex flex-col gap-gutter-xl">
+          <div class="flex flex-col gap-gutter-sm text-center max-w-2xl mx-auto">
+            <span class="font-label text-label-sm text-light-secondary uppercase">Histórias reais</span>
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-primary text-balance">
+              Quem já atravessou esse caminho
+            </h2>
+          </div>
 
-<section id="bloco-06" data-od-id="para-quem"><div class="wrap">
-  <span class="selo-claro reveal">Perfil do leitor</span>
-  <h2 class="reveal" style="margin-top:14px">Para quem este guia foi escrito, e para quem não foi</h2>
-  <div class="comparativo">
-    <div class="comp comp-positiva reveal" data-od-id="para-quem-positiva">
-      <h3><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#137a4a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Para quem é.</h3>
-      <p style="font-size:13.5px;color:var(--muted);margin:0 0 4px">Marque o que você reconhece em você:</p>
-      <label class="ck"><input type="checkbox" data-ck><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt">Adultos que reagem de forma desproporcional e não entendem o motivo</span></label>
-      <label class="ck"><input type="checkbox" data-ck><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt">Pessoas que temem a rejeição e, ao mesmo tempo, temem a intimidade</span></label>
-      <label class="ck"><input type="checkbox" data-ck><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt">Quem sempre coloca os outros primeiro e vive exausto</span></label>
-      <label class="ck"><input type="checkbox" data-ck><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt">Quem repete relacionamentos e ciclos que já conhece de cor</span></label>
-      <label class="ck"><input type="checkbox" data-ck><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt">Quem sente um vazio sem nome e quer entendê-lo com método</span></label>
-      <label class="ck"><input type="checkbox" data-ck><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt">Leitores dispostos a dedicar 10 a 15 minutos por dia aos exercícios</span></label>
-      <div class="comp-mensagem" data-od-id="para-quem-mensagem" id="mensagem-reconhecimento" role="status">Você marcou <strong data-contagem>0</strong> dos sinais — <strong>este guia foi escrito exatamente para quem se reconhece neles.</strong> O método abaixo mostra o caminho de volta.</div>
-    </div>
-    <div class="comp comp-negativa reveal" data-od-id="para-quem-negativa">
-      <h3><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b3402f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Para quem não é.</h3>
-      <ul>
-        <li>Quem procura um culpado para o passado em vez de compreensão</li>
-        <li>Quem quer apagar a história em vez de reescrevê-la</li>
-        <li>Quem vive crise psiquiátrica aguda e precisa de atendimento clínico imediato</li>
-        <li>Quem não pretende escrever nem praticar nada, só ler por curiosidade</li>
-      </ul>
-    </div>
-  </div>
-</div></section>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-lg items-stretch">
+            <article data-od-id="dep-mariana" class="reveal bg-light-surface rounded-lg p-gutter-xl border border-light-outline-variant/60 shadow-sm flex flex-col justify-between gap-gutter-lg h-full">
+              <div class="flex flex-col gap-gutter-md">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <h3 class="font-title text-title-md text-light-primary">Mariana, 34.</h3>
+                  <span class="material-symbols-outlined text-light-secondary text-title-md" aria-hidden="true">format_quote</span>
+                </div>
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                  Explodia com o filho por motivos pequenos e chorava de culpa depois. Em 3 semanas de leitura e exercícios, passou a <strong class="font-semibold text-light-primary">pausar antes de reagir</strong> e descreve as noites em casa como <strong class="font-semibold text-light-primary">tranquilas pela primeira vez em anos</strong>.
+                </p>
+              </div>
+              <div class="flex flex-wrap items-center gap-gutter-sm">
+                <span class="font-label text-label-sm text-light-on-secondary-container bg-light-secondary-container px-gutter-md py-gutter-xs rounded-full">Pausa antes de reagir</span>
+                <span class="font-label text-label-sm text-light-primary bg-light-surface-container px-gutter-md py-gutter-xs rounded-full">Noites tranquilas</span>
+              </div>
+            </article>
 
-<section id="bloco-07" class="banda" data-od-id="o-que-recebe"><div class="wrap">
-  <span class="selo-claro reveal">Entrega</span>
-  <h2 class="reveal" style="margin-top:14px">Tudo que você receberá</h2>
-  <div class="recebe-grid">
-    <div class="item-recebe reveal" data-od-id="recebe-guia-audio">
-      <div class="topo"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><h3>Guia em PDF, 87 páginas</h3></div>
-      <p style="font-size:15.5px;color:var(--muted);margin:0">10 capítulos em ordem de aplicação, cada um terminando em exercício prático: os 5 exercícios de conexão, as 6 técnicas de cura, o perdão em 4 etapas e a reescrita em 6 passos.</p>
-      <div class="valor">Vale R$ 97 na versão avulsa</div>
-      <div class="divisor-entrega"></div>
-      <div class="topo"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></span><h3>Áudio de auto-hipnose guiada, 30 minutos</h3></div>
-      <p style="font-size:15.5px;color:var(--muted);margin:0">Sessão conduzida para visualizar, acolher e oferecer segurança à criança interior.</p>
-      <div class="valor">Vale R$ 67 na versão avulsa</div>
-    </div>
-  </div>
-  <div class="acesso-imediato reveal" data-od-id="acesso-imediato">
-    <p class="linha-acesso"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span><strong>Acesso imediato:</strong> pagamento aprovado, download liberado na hora, direto no seu email. Sem espera, sem prazo, sem login complicado.</span></p>
-    <p class="intencao"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>Comece no mesmo dia:</strong> o guia pede de 10 a 15 minutos por dia, e o áudio de 30 minutos pode ser ouvido ainda hoje à noite, de olhos fechados.</span></p>
-  </div>
-</div></section>
+            <article data-od-id="dep-carlos" class="reveal bg-light-surface rounded-lg p-gutter-xl border border-light-outline-variant/60 shadow-sm flex flex-col justify-between gap-gutter-lg h-full">
+              <div class="flex flex-col gap-gutter-md">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <h3 class="font-title text-title-md text-light-primary">Carlos, 41.</h3>
+                  <span class="material-symbols-outlined text-light-secondary text-title-md" aria-hidden="true">format_quote</span>
+                </div>
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                  Dizia sim no trabalho até adoecer. Em 2 meses, identificou o padrão do apaziguador e <strong class="font-semibold text-light-primary">negou dois projetos sem culpa</strong>, com a agenda <strong class="font-semibold text-light-primary">sob controle</strong>.
+                </p>
+              </div>
+              <div class="flex flex-wrap items-center gap-gutter-sm">
+                <span class="font-label text-label-sm text-light-on-secondary-container bg-light-secondary-container px-gutter-md py-gutter-xs rounded-full">Padrão identificado</span>
+                <span class="font-label text-label-sm text-light-primary bg-light-surface-container px-gutter-md py-gutter-xs rounded-full">Agenda sob controle</span>
+              </div>
+            </article>
+          </div>
 
-<section id="bloco-08" data-od-id="bonus"><div class="wrap">
-  <span class="selo-claro reveal">Bônus</span>
-  <h2 class="reveal" style="margin-top:14px">E mais 3 bônus que aceleram o resultado</h2>
-  <div class="bonus-grid">
-    <div class="bonus-card reveal" data-od-id="bonus-1">
-      <img src="assets/bonus-audio.jpg" alt="Áudio de auto-hipnose guiada" width="1024" height="1024" loading="lazy">
-      <div class="corpo">
-        <h3>Bônus 1. Áudio de Auto-hipnose Guiada.</h3>
-        <p>30 minutos conduzidos pelo Sergio para visualizar, acolher e oferecer segurança à sua criança interior — ouça hoje à noite, de olhos fechados.</p>
-        <div class="trava">Resolve a trava de começar sozinho.</div>
-        <div class="rodape"><span class="valor">R$ 67</span><span class="pill-incluso">Incluso</span></div>
+          <div data-od-id="ponte-metodo" class="reveal flex flex-col items-center text-center gap-gutter-md pt-gutter-md">
+            <p class="font-body text-body-lg text-light-primary max-w-xl text-pretty">
+              Quem se reconheceu até aqui já entendeu a origem. Falta o caminho de volta.
+            </p>
+            <a href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="ponte-cta" class="inline-flex items-center justify-center gap-gutter-sm px-gutter-xl py-gutter-md rounded-DEFAULT bg-emerald-cta text-on-emerald font-label hover:bg-emerald-cta-hover transition-colors duration-state-change shadow-md">
+              <span class="font-label text-label-lg">Quero ver o método completo</span>
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+            </a>
+            <span class="font-body text-body-sm text-light-on-surface-variant">Guia de 87 páginas + áudio de 30 minutos · Garantia incondicional de 7 dias</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- O MÉTODO -->
+      <section id="metodo" class="bg-light-surface py-section" data-od-id="metodo-fios">
+        <div class="max-w-6xl mx-auto px-page-margin flex flex-col gap-gutter-xl">
+          <div class="max-w-3xl mx-auto text-center flex flex-col gap-gutter-md">
+            <span class="font-label text-label-sm text-light-secondary uppercase">O método</span>
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-primary text-balance">
+              Método Fios Invisíveis: reconhecer, curar, perdoar, reescrever
+            </h2>
+            <div class="text-left flex flex-col gap-gutter-md">
+              <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                O método parte de um mecanismo simples. Reações adultas desproporcionais são ecos de feridas antigas. Cada eco tem origem rastreável em um dos 5 tipos de trauma, um padrão repetido e uma crença instalada. <strong class="font-semibold text-light-primary">Quando você reconhece o fio, entende a causa. Quando entende a causa, trata na origem em vez de brigar com o sintoma.</strong>
+              </p>
+              <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                Sem o método, a pessoa tenta esquecer, finge que está bem e repete o ciclo por anos. Com o método, ela mapeia as feridas em dias, aplica um exercício por etapa e acompanha a própria evolução em releituras. <strong class="font-semibold text-light-primary">Antes: reagir no automático e pedir desculpas depois. Depois: pausar, nomear e escolher a resposta.</strong>
+              </p>
+              <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                O guia entrega isso em 87 páginas organizadas em 4 macroetapas, mais um áudio de 30 minutos que conduz a primeira experiência profunda. Leitura de 10 a 15 minutos por dia, exercícios com papel e caneta, aplicação imediata. <strong class="font-semibold text-light-primary">Leitores que aplicam o exercício do diálogo relatam a primeira virada ainda na primeira semana</strong>, ao nomear em voz alta uma ferida carregada há décadas.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg items-stretch">
+            <article data-od-id="etapa-reconhecer" class="reveal grad-card rounded-lg p-gutter-lg border border-navy-border flex flex-col gap-gutter-sm text-on-navy h-full">
+              <header class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-label text-label-sm text-accent-sky uppercase">Etapa 1</span>
+                <span class="material-symbols-outlined text-accent-sky text-title-md" aria-hidden="true">visibility</span>
+              </header>
+              <h3 class="font-title text-headline-sm text-on-navy">Reconhecer</h3>
+              <p class="font-body text-body-sm text-on-navy-muted text-pretty">
+                Mapear feridas, traumas, padrões e crenças com o diário e a escavação emocional.
+              </p>
+            </article>
+            <article data-od-id="etapa-curar" class="reveal grad-card rounded-lg p-gutter-lg border border-navy-border flex flex-col gap-gutter-sm text-on-navy h-full">
+              <header class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-label text-label-sm text-accent-sky uppercase">Etapa 2</span>
+                <span class="material-symbols-outlined text-accent-sky text-title-md" aria-hidden="true">healing</span>
+              </header>
+              <h3 class="font-title text-headline-sm text-on-navy">Curar</h3>
+              <p class="font-body text-body-sm text-on-navy-muted text-pretty">
+                Aplicar os 5 exercícios de conexão e as 6 técnicas de cura, da meditação à reeducação em 8 passos.
+              </p>
+            </article>
+            <article data-od-id="etapa-perdoar" class="reveal grad-card rounded-lg p-gutter-lg border border-navy-border flex flex-col gap-gutter-sm text-on-navy h-full">
+              <header class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-label text-label-sm text-accent-sky uppercase">Etapa 3</span>
+                <span class="material-symbols-outlined text-accent-sky text-title-md" aria-hidden="true">favorite</span>
+              </header>
+              <h3 class="font-title text-headline-sm text-on-navy">Perdoar</h3>
+              <p class="font-body text-body-sm text-on-navy-muted text-pretty">
+                Atravessar as 4 etapas do perdão, inclusive o perdão a si mesmo, e instalar limites saudáveis.
+              </p>
+            </article>
+            <article data-od-id="etapa-reescrever" class="reveal grad-card rounded-lg p-gutter-lg border border-navy-border flex flex-col gap-gutter-sm text-on-navy h-full">
+              <header class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-label text-label-sm text-accent-sky uppercase">Etapa 4</span>
+                <span class="material-symbols-outlined text-accent-sky text-title-md" aria-hidden="true">edit_note</span>
+              </header>
+              <h3 class="font-title text-headline-sm text-on-navy">Reescrever</h3>
+              <p class="font-body text-body-sm text-on-navy-muted text-pretty">
+                Redigir a nova narrativa em 6 passos, com metas claras e prática diária de saúde emocional.
+              </p>
+            </article>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-start pt-gutter-lg">
+            <div data-od-id="sumario-capa-mini" class="reveal lg:col-span-5 bg-light-surface-container-low rounded-xl p-gutter-xl border border-light-outline-variant/60 flex items-center justify-center">
+              <img src="assets/capa2.jpg" alt="Capa do Guia Acolhendo sua Criança Interior" width="320" height="438" loading="lazy" class="w-80 h-auto shadow-lg">
+            </div>
+
+            <div data-od-id="sumario-capitulos" class="lg:col-span-7 flex flex-col gap-gutter-md">
+              <h3 class="font-headline text-headline-md text-light-primary text-balance">
+                Capítulo por capítulo, o que tem dentro do Guia Acolhendo Sua Criança Interior.
+              </h3>
+              <ol class="grid grid-cols-1 gap-gutter-sm">
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">01</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Introdução.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">O mapa da jornada: o que você vai reconhecer, curar e reescrever, e por que a cura é gradual e vale cada passo.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">02</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Compreendendo a criança interior.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">O quarto da bagunça: cada risada e cada lágrima viraram fios da sua personalidade adulta, e ferida também pode ser curada.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">03</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">A jornada da autodescoberta.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">Os 5 tipos de trauma (negligência, abuso, violência presenciada, perda, ser diferente) e as 6 estratégias para reconhecer o seu: autoconsciência, diário, atenção plena, terapia, grupos de apoio e arte.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">04</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Padrões e crenças.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">Os roteiros que se repetem (relacionamentos tóxicos, bloqueios, papéis familiares), o clima emocional da sua infância e as frases que viraram lei interna. Mais os 5 exercícios de conexão: foto, lugares, brincar, diário e regressão.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">05</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Curando as feridas.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">Meditação da criança interior, reeducação em 8 passos, artes expressivas, afirmações, TCC/EMDR/somática explicadas e o manejo de raiva, medo e tristeza, um por um.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">06</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">O perdão.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">Perdão sem fraqueza em 4 etapas (decisão, entendimento, empatia, deixar ir, inclusive a si mesmo) mais meditação, atenção plena, oração, natureza e rituais.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">07</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Nutrir e proteger.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">Autocompaixão em 7 passos, limites saudáveis (reconhecer, comunicar, sustentar) e relacionamentos que nutrem em vez de ferir.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">08</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Reescrever sua história.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">A narrativa limitante em 6 passos, a nova história empoderadora e metas SMART com mentalidade de crescimento.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">09</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Saúde emocional e técnicas avançadas.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">As 10 práticas diárias, resiliência em 7 estratégias, experiência somática, EMDR, IFS e o caminho dos traumas complexos.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-gutter-sm p-gutter-md rounded-DEFAULT bg-light-surface-container-low/60 border border-light-outline-variant/40">
+                  <span class="font-label text-label-sm text-light-primary tabular-nums shrink-0 mt-0.5">10</span>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <h4 class="font-title text-title-md text-light-primary">Transformação e conclusão.</h4>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">Celebrar marcos, atravessar os ciclos de cura e sair com o plano de vida contínua. Mais o chamado final: comece agora.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div data-od-id="capitulos-cta" class="reveal grad-card text-on-navy rounded-xl p-gutter-xl flex flex-col md:flex-row items-center justify-between gap-gutter-lg border border-navy-border">
+            <div class="flex flex-col gap-gutter-xs text-center md:text-left">
+              <h3 class="font-title text-headline-sm text-on-navy">
+                Todo esse caminho, capítulo por capítulo, está dentro do guia
+              </h3>
+              <p class="font-body text-body-sm text-on-navy-muted">
+                87 páginas + áudio de 30 minutos · garantia de 7 dias
+              </p>
+            </div>
+            <a href="https://pay.kiwify.com.br/GhPs2mQ" class="inline-flex items-center justify-center gap-gutter-sm px-gutter-xl py-gutter-md rounded-DEFAULT bg-emerald-cta text-on-emerald font-label hover:bg-emerald-cta-hover transition-colors duration-state-change shrink-0">
+              <span class="font-label text-label-lg">Quero meu guia e meu áudio agora</span>
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFIL DO LEITOR -->
+      <section class="bg-light-surface-container-low py-section" data-od-id="para-quem">
+        <div class="max-w-5xl mx-auto px-page-margin flex flex-col gap-gutter-xl">
+          <div class="text-center max-w-2xl mx-auto flex flex-col gap-gutter-sm">
+            <span class="font-label text-label-sm text-light-secondary uppercase">Perfil do leitor</span>
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-primary text-balance">
+              Para quem este guia foi escrito, e para quem não foi
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-lg items-stretch">
+            <article data-od-id="para-quem-positiva" class="reveal bg-light-surface rounded-lg p-gutter-xl border border-light-outline-variant/60 flex flex-col gap-gutter-md h-full">
+              <div class="flex items-center gap-gutter-sm">
+                <span class="material-symbols-outlined text-light-secondary text-headline-sm" aria-hidden="true">check_circle</span>
+                <h3 class="font-title text-title-md text-light-primary">Para quem é.</h3>
+              </div>
+              <p class="font-body text-body-sm text-light-on-surface-variant">Marque o que você reconhece em você:</p>
+              <div class="flex flex-col gap-gutter-sm">
+                <label class="flex items-start gap-gutter-sm cursor-pointer"><input type="checkbox" data-ck class="mt-1 shrink-0" style="accent-color:#006D30;width:18px;height:18px"><span class="font-body text-body-sm text-light-on-surface-variant">Adultos que reagem de forma desproporcional e não entendem o motivo</span></label>
+                <label class="flex items-start gap-gutter-sm cursor-pointer"><input type="checkbox" data-ck class="mt-1 shrink-0" style="accent-color:#006D30;width:18px;height:18px"><span class="font-body text-body-sm text-light-on-surface-variant">Pessoas que temem a rejeição e, ao mesmo tempo, temem a intimidade</span></label>
+                <label class="flex items-start gap-gutter-sm cursor-pointer"><input type="checkbox" data-ck class="mt-1 shrink-0" style="accent-color:#006D30;width:18px;height:18px"><span class="font-body text-body-sm text-light-on-surface-variant">Quem sempre coloca os outros primeiro e vive exausto</span></label>
+                <label class="flex items-start gap-gutter-sm cursor-pointer"><input type="checkbox" data-ck class="mt-1 shrink-0" style="accent-color:#006D30;width:18px;height:18px"><span class="font-body text-body-sm text-light-on-surface-variant">Quem repete relacionamentos e ciclos que já conhece de cor</span></label>
+                <label class="flex items-start gap-gutter-sm cursor-pointer"><input type="checkbox" data-ck class="mt-1 shrink-0" style="accent-color:#006D30;width:18px;height:18px"><span class="font-body text-body-sm text-light-on-surface-variant">Quem sente um vazio sem nome e quer entendê-lo com método</span></label>
+                <label class="flex items-start gap-gutter-sm cursor-pointer"><input type="checkbox" data-ck class="mt-1 shrink-0" style="accent-color:#006D30;width:18px;height:18px"><span class="font-body text-body-sm text-light-on-surface-variant">Leitores dispostos a dedicar 10 a 15 minutos por dia aos exercícios</span></label>
+              </div>
+              <div data-od-id="para-quem-mensagem" id="mensagem-reconhecimento" role="status" class="off rounded-DEFAULT bg-light-secondary-container text-light-on-secondary-container p-gutter-md font-body text-body-sm">
+                Você marcou <strong data-contagem>0</strong> dos sinais — <strong>este guia foi escrito exatamente para quem se reconhece neles.</strong> O método abaixo mostra o caminho de volta.
+              </div>
+            </article>
+
+            <article data-od-id="para-quem-negativa" class="reveal bg-light-surface rounded-lg p-gutter-xl border border-light-outline-variant/60 flex flex-col gap-gutter-md h-full">
+              <div class="flex items-center gap-gutter-sm">
+                <span class="material-symbols-outlined text-light-error text-headline-sm" aria-hidden="true">cancel</span>
+                <h3 class="font-title text-title-md text-light-primary">Para quem não é.</h3>
+              </div>
+              <ul class="flex flex-col gap-gutter-sm">
+                <li class="flex items-start gap-gutter-sm">
+                  <span class="material-symbols-outlined text-light-error text-body-lg shrink-0 mt-0.5" aria-hidden="true">close</span>
+                  <span class="font-body text-body-sm text-light-on-surface-variant">Quem procura um culpado para o passado em vez de compreensão</span>
+                </li>
+                <li class="flex items-start gap-gutter-sm">
+                  <span class="material-symbols-outlined text-light-error text-body-lg shrink-0 mt-0.5" aria-hidden="true">close</span>
+                  <span class="font-body text-body-sm text-light-on-surface-variant">Quem quer apagar a história em vez de reescrevê-la</span>
+                </li>
+                <li class="flex items-start gap-gutter-sm">
+                  <span class="material-symbols-outlined text-light-error text-body-lg shrink-0 mt-0.5" aria-hidden="true">close</span>
+                  <span class="font-body text-body-sm text-light-on-surface-variant">Quem vive crise psiquiátrica aguda e precisa de atendimento clínico imediato</span>
+                </li>
+                <li class="flex items-start gap-gutter-sm">
+                  <span class="material-symbols-outlined text-light-error text-body-lg shrink-0 mt-0.5" aria-hidden="true">close</span>
+                  <span class="font-body text-body-sm text-light-on-surface-variant">Quem não pretende escrever nem praticar nada, só ler por curiosidade</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENTREGA + BÔNUS -->
+      <section class="bg-light-surface py-section" data-od-id="o-que-recebe">
+        <div class="max-w-5xl mx-auto px-page-margin flex flex-col gap-gutter-xl">
+          <div class="flex flex-col gap-gutter-lg">
+            <div class="text-center max-w-2xl mx-auto flex flex-col gap-gutter-sm">
+              <span class="font-label text-label-sm text-light-secondary uppercase">Entrega</span>
+              <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-primary text-balance">
+                Tudo que você receberá
+              </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-lg items-stretch">
+              <article data-od-id="recebe-guia" class="reveal bg-light-surface-container-low rounded-lg p-gutter-lg border border-light-outline-variant/60 flex items-start gap-gutter-md h-full">
+                <div class="w-12 h-12 rounded-DEFAULT bg-light-primary text-light-on-primary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">menu_book</span>
+                </div>
+                <div class="flex flex-col gap-gutter-xs">
+                  <h3 class="font-title text-title-md text-light-primary">Guia em PDF, 87 páginas</h3>
+                  <p class="font-body text-body-sm text-light-on-surface-variant">
+                    10 capítulos em ordem de aplicação, cada um terminando em exercício prático: os 5 exercícios de conexão, as 6 técnicas de cura, o perdão em 4 etapas e a reescrita em 6 passos.
+                  </p>
+                  <span class="font-label text-label-md text-light-secondary pt-gutter-xs">Vale R$ 97 na versão avulsa</span>
+                </div>
+              </article>
+
+              <article data-od-id="recebe-audio" class="reveal bg-light-surface-container-low rounded-lg p-gutter-lg border border-light-outline-variant/60 flex items-start gap-gutter-md h-full">
+                <div class="w-12 h-12 rounded-DEFAULT bg-light-primary text-light-on-primary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">headphones</span>
+                </div>
+                <div class="flex flex-col gap-gutter-xs">
+                  <h3 class="font-title text-title-md text-light-primary">Áudio de auto-hipnose guiada, 30 minutos</h3>
+                  <p class="font-body text-body-sm text-light-on-surface-variant">
+                    Sessão conduzida para visualizar, acolher e oferecer segurança à criança interior.
+                  </p>
+                  <span class="font-label text-label-md text-light-secondary pt-gutter-xs">Vale R$ 67 na versão avulsa</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-md" data-od-id="acesso-imediato">
+              <div class="reveal bg-light-surface rounded-DEFAULT p-gutter-md border border-light-outline-variant/60 flex items-center gap-gutter-sm">
+                <span class="material-symbols-outlined text-light-primary text-title-md shrink-0" aria-hidden="true">bolt</span>
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="font-semibold text-light-primary">Acesso imediato:</strong> pagamento aprovado, download liberado na hora, direto no seu email. Sem espera, sem prazo, sem login complicado.
+                </p>
+              </div>
+              <div class="reveal bg-light-surface rounded-DEFAULT p-gutter-md border border-light-outline-variant/60 flex items-center gap-gutter-sm">
+                <span class="material-symbols-outlined text-light-primary text-title-md shrink-0" aria-hidden="true">schedule</span>
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="font-semibold text-light-primary">Comece no mesmo dia:</strong> o guia pede de 10 a 15 minutos por dia, e o áudio de 30 minutos pode ser ouvido ainda hoje à noite, de olhos fechados.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-gutter-lg pt-gutter-lg" data-od-id="bonus">
+            <div class="text-center max-w-2xl mx-auto flex flex-col gap-gutter-sm">
+              <span class="font-label text-label-sm text-light-secondary uppercase">Bônus</span>
+              <h2 class="font-headline text-headline-md text-light-primary text-balance">
+                E mais 3 bônus que aceleram o resultado
+              </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+              <article data-od-id="bonus-1" class="reveal bg-light-surface rounded-lg overflow-hidden border border-light-outline-variant/60 shadow-sm flex flex-col justify-between h-full">
+                <div>
+                  <img src="assets/bonus-audio.jpg" alt="Áudio de auto-hipnose guiada" width="1024" height="1024" loading="lazy" class="w-full h-48 object-cover">
+                  <div class="p-gutter-lg flex flex-col gap-gutter-xs">
+                    <span class="font-label text-label-sm text-light-secondary uppercase">Bônus 1</span>
+                    <h3 class="font-title text-title-md text-light-primary">Bônus 1. Áudio de Auto-hipnose Guiada.</h3>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">30 minutos conduzidos pelo Sergio para visualizar, acolher e oferecer segurança à sua criança interior — ouça hoje à noite, de olhos fechados.</p>
+                    <p class="font-body text-body-sm text-light-primary font-medium">Resolve a trava de começar sozinho.</p>
+                  </div>
+                </div>
+                <div class="px-gutter-lg py-gutter-md bg-light-surface-container-low flex items-center justify-between border-t border-light-outline-variant/40">
+                  <span class="font-body text-body-sm text-light-on-surface-variant tabular-nums">R$ 67</span>
+                  <span class="font-label text-label-sm bg-light-secondary-container text-light-on-secondary-container px-gutter-md py-gutter-xs rounded-full uppercase">Incluso</span>
+                </div>
+              </article>
+
+              <article data-od-id="bonus-2" class="reveal bg-light-surface rounded-lg overflow-hidden border border-light-outline-variant/60 shadow-sm flex flex-col justify-between h-full">
+                <div>
+                  <img src="assets/bonus-cartas.jpg" alt="Cartas de Cura" width="1024" height="1024" loading="lazy" class="w-full h-48 object-cover">
+                  <div class="p-gutter-lg flex flex-col gap-gutter-xs">
+                    <span class="font-label text-label-sm text-light-secondary uppercase">Bônus 2</span>
+                    <h3 class="font-title text-title-md text-light-primary">Bônus 2. Cartas de Cura.</h3>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">7 cartas guiadas para conversar com sua criança interior — uma para cada ferida — com frases-guia para preencher e espaço para a resposta dela.</p>
+                    <p class="font-body text-body-sm text-light-primary font-medium">Resolve a trava da página em branco.</p>
+                  </div>
+                </div>
+                <div class="px-gutter-lg py-gutter-md bg-light-surface-container-low flex items-center justify-between border-t border-light-outline-variant/40">
+                  <span class="font-body text-body-sm text-light-on-surface-variant tabular-nums">R$ 47</span>
+                  <span class="font-label text-label-sm bg-light-secondary-container text-light-on-secondary-container px-gutter-md py-gutter-xs rounded-full uppercase">Incluso</span>
+                </div>
+              </article>
+
+              <article data-od-id="bonus-3" class="reveal bg-light-surface rounded-lg overflow-hidden border border-light-outline-variant/60 shadow-sm flex flex-col justify-between h-full">
+                <div>
+                  <img src="assets/bonus-mapa.jpg" alt="Mapa dos 5 traumas" width="1024" height="1024" loading="lazy" class="w-full h-48 object-cover">
+                  <div class="p-gutter-lg flex flex-col gap-gutter-xs">
+                    <span class="font-label text-label-sm text-light-secondary uppercase">Bônus 3</span>
+                    <h3 class="font-title text-title-md text-light-primary">Bônus 3. Mapa dos 5 Traumas.</h3>
+                    <p class="font-body text-body-sm text-light-on-surface-variant">Ficha por trauma (negligência, abuso, violência presenciada, perda, ser diferente) com checklist de sinais adultos, nota de 0 a 10 e seu mapa final de por onde começar.</p>
+                    <p class="font-body text-body-sm text-light-primary font-medium">Resolve a dúvida sobre por onde começar.</p>
+                  </div>
+                </div>
+                <div class="px-gutter-lg py-gutter-md bg-light-surface-container-low flex items-center justify-between border-t border-light-outline-variant/40">
+                  <span class="font-body text-body-sm text-light-on-surface-variant tabular-nums">R$ 37</span>
+                  <span class="font-label text-label-sm bg-light-secondary-container text-light-on-secondary-container px-gutter-md py-gutter-xs rounded-full uppercase">Incluso</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANTES E DEPOIS -->
+      <section class="bg-light-surface-container-low py-section" data-od-id="depoimentos-resultado">
+        <div class="max-w-5xl mx-auto px-page-margin flex flex-col gap-gutter-xl">
+          <div class="text-center max-w-2xl mx-auto flex flex-col gap-gutter-sm">
+            <span class="font-label text-label-sm text-light-secondary uppercase">Antes e depois</span>
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-primary text-balance">
+              Quem aplicou o método conta o antes e o depois
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+            <article data-od-id="resultado-1" class="reveal bg-light-surface rounded-lg p-gutter-lg border border-light-outline-variant/60 flex flex-col justify-between gap-gutter-md h-full">
+              <div class="flex flex-col gap-gutter-sm">
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="text-light-primary">Antes:</strong> chorava escondida depois de brigar com os filhos por motivos pequenos, com culpa acumulada há 4 anos.
+                </p>
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="text-light-primary">Virada:</strong> fez o exercício do diálogo com a foto na primeira semana e nomeou em voz alta a ferida da crítica constante.
+                </p>
+                <p class="font-body text-body-sm text-light-primary font-medium">
+                  <strong>Resultado:</strong> em 2 meses, as brigas caíram para <strong>quase zero</strong> e ela descreve a casa como <strong>leve pela primeira vez</strong>.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-gutter-xs">
+                <span class="font-label text-label-sm bg-light-surface-container text-light-primary px-gutter-sm py-gutter-xs rounded-full">Brigas quase zero</span>
+                <span class="font-label text-label-sm bg-light-secondary-container text-light-on-secondary-container px-gutter-sm py-gutter-xs rounded-full">Casa leve</span>
+              </div>
+            </article>
+
+            <article data-od-id="resultado-2" class="reveal bg-light-surface rounded-lg p-gutter-lg border border-light-outline-variant/60 flex flex-col justify-between gap-gutter-md h-full">
+              <div class="flex flex-col gap-gutter-sm">
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="text-light-primary">Antes:</strong> aceitava todo projeto no trabalho, dormia 5 horas por noite e vivia exausto há 2 anos.
+                </p>
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="text-light-primary">Virada:</strong> identificou o padrão do apaziguador no mapa dos 5 traumas e escreveu os primeiros limites no papel.
+                </p>
+                <p class="font-body text-body-sm text-light-primary font-medium">
+                  <strong>Resultado:</strong> em 90 dias, <strong>recusou 3 projetos sem culpa</strong> e voltou a dormir <strong>7 horas por noite</strong>.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-gutter-xs">
+                <span class="font-label text-label-sm bg-light-surface-container text-light-primary px-gutter-sm py-gutter-xs rounded-full">3 projetos recusados</span>
+                <span class="font-label text-label-sm bg-light-secondary-container text-light-on-secondary-container px-gutter-sm py-gutter-xs rounded-full">Dorme 7 horas</span>
+              </div>
+            </article>
+
+            <article data-od-id="resultado-3" class="reveal bg-light-surface rounded-lg p-gutter-lg border border-light-outline-variant/60 flex flex-col justify-between gap-gutter-md h-full">
+              <div class="flex flex-col gap-gutter-sm">
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="text-light-primary">Antes:</strong> terminava todo relacionamento antes dos 6 meses, com medo de ser abandonada primeiro, por 5 anos seguidos.
+                </p>
+                <p class="font-body text-body-sm text-light-on-surface-variant">
+                  <strong class="text-light-primary">Virada:</strong> atravessou as 4 etapas do perdão e escreveu a nova narrativa em 6 passos.
+                </p>
+                <p class="font-body text-body-sm text-light-primary font-medium">
+                  <strong>Resultado:</strong> está há <strong>8 meses no relacionamento mais estável da vida adulta</strong>, com conversas difíceis <strong>sem fuga</strong>.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-gutter-xs">
+                <span class="font-label text-label-sm bg-light-surface-container text-light-primary px-gutter-sm py-gutter-xs rounded-full">8 meses estáveis</span>
+                <span class="font-label text-label-sm bg-light-secondary-container text-light-on-secondary-container px-gutter-sm py-gutter-xs rounded-full">Conversas sem fuga</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- OFERTA (navy com degradê) -->
+      <section id="oferta" class="grad-secao text-on-navy py-section" data-od-id="oferta">
+        <div class="max-w-4xl mx-auto px-page-margin">
+          <div data-od-id="stack-preco" class="reveal grad-card border border-navy-border rounded-xl p-gutter-xl shadow-2xl flex flex-col gap-gutter-xl">
+            <div class="text-center flex flex-col gap-gutter-xs">
+              <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-on-navy text-balance">
+                O pacote completo, somado item por item
+              </h2>
+              <p class="font-body text-body-sm text-on-navy-muted">
+                Guia + áudio + 3 bônus, tudo liberado no mesmo acesso
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-xl items-center">
+              <div class="md:col-span-5 flex flex-col items-center gap-gutter-md">
+                <img src="assets/capa2.jpg" alt="Guia em PDF, 87 páginas" width="192" height="262" loading="lazy" class="w-48 h-64 object-cover rounded-md shadow-xl border border-navy-border">
+                <div class="grid grid-cols-3 gap-gutter-sm w-full max-w-xs">
+                  <img src="assets/bonus-audio.jpg" alt="Bônus 1, áudio de auto-hipnose" loading="lazy" class="w-full h-16 object-cover rounded-sm border border-navy-border">
+                  <img src="assets/bonus-cartas.jpg" alt="Bônus 2, Cartas de Cura" loading="lazy" class="w-full h-16 object-cover rounded-sm border border-navy-border">
+                  <img src="assets/bonus-mapa.jpg" alt="Bônus 3, mapa dos 5 traumas" loading="lazy" class="w-full h-16 object-cover rounded-sm border border-navy-border">
+                </div>
+              </div>
+
+              <div class="md:col-span-7 flex flex-col gap-gutter-md">
+                <ul class="flex flex-col gap-gutter-sm border-b border-navy-border pb-gutter-md">
+                  <li class="flex items-center justify-between gap-gutter-md">
+                    <span class="font-body text-body-sm text-on-navy">Guia em PDF, 87 páginas</span>
+                    <span class="font-body text-body-sm text-on-navy-muted tabular-nums">R$ 97</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-gutter-md">
+                    <span class="font-body text-body-sm text-on-navy">Bônus 1, áudio de auto-hipnose (30 min)</span>
+                    <span class="font-body text-body-sm text-on-navy-muted tabular-nums">R$ 67</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-gutter-md">
+                    <span class="font-body text-body-sm text-on-navy">Bônus 2, Cartas de Cura</span>
+                    <span class="font-body text-body-sm text-on-navy-muted tabular-nums">R$ 47</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-gutter-md">
+                    <span class="font-body text-body-sm text-on-navy">Bônus 3, mapa dos 5 traumas</span>
+                    <span class="font-body text-body-sm text-on-navy-muted tabular-nums">R$ 37</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-gutter-md">
+                    <span class="font-body text-body-sm text-on-navy-muted">Valor total</span>
+                    <span class="font-title text-title-md text-on-navy-muted line-through tabular-nums">R$ 248</span>
+                  </li>
+                </ul>
+
+                <div class="bg-navy-deep/70 rounded-lg p-gutter-lg border border-navy-border flex flex-col items-center text-center gap-gutter-sm">
+                  <span class="font-label text-label-sm text-accent-sky uppercase">Preço hoje</span>
+                  <div class="flex items-center gap-gutter-sm">
+                    <span class="font-display text-display-lg-mobile md:text-display-lg text-on-navy tabular-nums">R$ 47</span>
+                    <span class="font-body text-body-sm text-on-navy-muted">à vista</span>
+                  </div>
+                  <a href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="oferta-cta" class="w-full inline-flex items-center justify-center gap-gutter-sm px-gutter-xl py-gutter-md rounded-DEFAULT bg-emerald-cta text-on-emerald font-label hover:bg-emerald-cta-hover transition-colors duration-state-change shadow-lg mt-gutter-xs">
+                    <span class="font-label text-label-lg">Quero meu guia e meu áudio agora</span>
+                    <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+                  </a>
+                  <span class="font-body text-body-sm text-on-navy-muted">Compra segura · Download imediato · Garantia de 7 dias</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPORTE + GARANTIA + AUTOR -->
+      <section class="bg-light-surface py-section" data-od-id="suporte-e-garantia">
+        <div class="max-w-5xl mx-auto px-page-margin flex flex-col gap-gutter-xl">
+          <div data-od-id="suporte" class="reveal max-w-3xl mx-auto text-center flex flex-col gap-gutter-sm">
+            <h3 class="font-headline text-headline-md text-light-primary flex items-center justify-center gap-gutter-sm">
+              <span class="material-symbols-outlined text-light-primary text-title-md" aria-hidden="true">forum</span>Você não atravessa sozinho
+            </h3>
+            <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+              Suporte por email para dúvidas sobre acesso, download e aplicação dos exercícios. Resposta em dias úteis, direto com a equipe do Sergio. O guia foi escrito para aplicação solo, e o email existe para nenhum leitor travar no caminho.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-lg items-stretch">
+            <article data-od-id="garantia-card" class="reveal bg-light-surface-container-low rounded-lg p-gutter-xl border border-light-outline-variant/60 flex flex-col justify-center items-center text-center gap-gutter-md h-full">
+              <div class="w-16 h-16 rounded-full bg-light-surface-container text-light-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-headline-md" style="font-variation-settings:'FILL' 1;" aria-hidden="true">verified_user</span>
+              </div>
+              <h3 data-od-id="garantia-titulo" class="font-headline text-headline-md text-light-primary">Risco zero por 7 dias</h3>
+              <img src="assets/garantia-7-dias.webp" alt="Garantia incondicional de 7 dias" loading="lazy" class="h-20 w-auto">
+              <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                <strong class="font-semibold text-light-primary">Garantia incondicional de 7 dias.</strong> Você baixa, lê, ouve e aplica. Se em qualquer momento dentro dos 7 primeiros dias decidir que não é para você, devolvemos 100% do valor pago. Sem pergunta, sem formulário, sem burocracia.
+              </p>
+            </article>
+
+            <article data-od-id="autor-card" class="reveal bg-light-surface-container-low rounded-lg p-gutter-xl border border-light-outline-variant/60 flex flex-col justify-center gap-gutter-md h-full">
+              <span class="font-label text-label-sm text-light-secondary uppercase">Autor</span>
+              <h3 class="font-headline text-headline-md text-light-primary">Quem organizou esse caminho</h3>
+              <div class="flex items-start gap-gutter-md">
+                <img src="assets/eu.jpg" alt="Sergio Lima, autor do guia" width="132" height="132" loading="lazy" class="w-20 h-20 rounded-full object-cover shrink-0 border border-light-outline-variant">
+                <div class="flex flex-col gap-gutter-xs">
+                  <p class="font-body text-body-sm text-light-on-surface-variant text-pretty">
+                    <strong class="font-semibold text-light-primary">Sergio Lima</strong> é o autor do Guia Definitivo Para Curar Sua Criança Interior e estruturou o Método Fios Invisíveis em etapas aplicáveis: 5 exercícios de conexão, 8 passos de reeducação, 4 etapas de perdão e 6 passos de reescrita. Cada técnica do guia vem com instrução de aplicação, não só teoria.
+                  </p>
+                  <p class="font-body text-body-sm text-light-on-surface-variant">Este bloco cresce com a história de origem e números do trabalho do Sergio — pendente de envio.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="bg-light-surface-container-low py-section" data-od-id="faq">
+        <div class="max-w-3xl mx-auto px-page-margin flex flex-col gap-gutter-xl">
+          <div class="text-center flex flex-col gap-gutter-sm">
+            <span class="font-label text-label-sm text-light-secondary uppercase">FAQ</span>
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-primary">
+              Dúvidas antes de começar
+            </h2>
+          </div>
+
+          <div class="flex flex-col gap-gutter-sm">
+            <details data-od-id="faq-1" open class="reveal group bg-light-surface border border-light-outline-variant rounded-DEFAULT p-gutter-md">
+              <summary class="flex items-center justify-between gap-gutter-md cursor-pointer list-none">
+                <span class="font-title text-title-md text-light-primary">Quanto tempo por dia eu preciso dedicar.</span>
+                <span class="material-symbols-outlined text-light-primary transition-transform duration-state-change group-open:rotate-180" aria-hidden="true">expand_more</span>
+              </summary>
+              <div class="pt-gutter-sm">
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">De 10 a 15 minutos. Um exercício por vez, sem prazo. Leitores que seguem esse ritmo concluem a primeira virada ainda na primeira semana.</p>
+              </div>
+            </details>
+            <details data-od-id="faq-2" class="reveal group bg-light-surface border border-light-outline-variant rounded-DEFAULT p-gutter-md">
+              <summary class="flex items-center justify-between gap-gutter-md cursor-pointer list-none">
+                <span class="font-title text-title-md text-light-primary">R$ 47 é barato demais para funcionar.</span>
+                <span class="material-symbols-outlined text-light-primary transition-transform duration-state-change group-open:rotate-180" aria-hidden="true">expand_more</span>
+              </summary>
+              <div class="pt-gutter-sm">
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">O preço baixo é decisão de alcance, não medida de profundidade. São 87 páginas e 30 minutos de áudio pelo valor de uma pizza, com garantia de 7 dias cobrindo o risco.</p>
+              </div>
+            </details>
+            <details data-od-id="faq-3" class="reveal group bg-light-surface border border-light-outline-variant rounded-DEFAULT p-gutter-md">
+              <summary class="flex items-center justify-between gap-gutter-md cursor-pointer list-none">
+                <span class="font-title text-title-md text-light-primary">Nunca fiz terapia e não entendo nada de psicologia.</span>
+                <span class="material-symbols-outlined text-light-primary transition-transform duration-state-change group-open:rotate-180" aria-hidden="true">expand_more</span>
+              </summary>
+              <div class="pt-gutter-sm">
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">O guia foi escrito sem jargão, com instrução passo a passo e um áudio que conduz pela mão. O único pré-requisito é saber ler e reservar 15 minutos.</p>
+              </div>
+            </details>
+            <details data-od-id="faq-4" class="reveal group bg-light-surface border border-light-outline-variant rounded-DEFAULT p-gutter-md">
+              <summary class="flex items-center justify-between gap-gutter-md cursor-pointer list-none">
+                <span class="font-title text-title-md text-light-primary">E se eu comprar e não servir para o meu caso.</span>
+                <span class="material-symbols-outlined text-light-primary transition-transform duration-state-change group-open:rotate-180" aria-hidden="true">expand_more</span>
+              </summary>
+              <div class="pt-gutter-sm">
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">A garantia incondicional de 7 dias devolve 100% do valor sem perguntas. O risco fica todo com quem vende.</p>
+              </div>
+            </details>
+            <details data-od-id="faq-5" class="reveal group bg-light-surface border border-light-outline-variant rounded-DEFAULT p-gutter-md">
+              <summary class="flex items-center justify-between gap-gutter-md cursor-pointer list-none">
+                <span class="font-title text-title-md text-light-primary">Qual a diferença deste guia para conteúdo gratuito sobre criança interior.</span>
+                <span class="material-symbols-outlined text-light-primary transition-transform duration-state-change group-open:rotate-180" aria-hidden="true">expand_more</span>
+              </summary>
+              <div class="pt-gutter-sm">
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">Conteúdo solto explica o conceito e para por aí. Aqui cada capítulo termina em exercício aplicado, com ordem, prazo de releitura e medida de progresso.</p>
+              </div>
+            </details>
+            <details data-od-id="faq-6" class="reveal group bg-light-surface border border-light-outline-variant rounded-DEFAULT p-gutter-md">
+              <summary class="flex items-center justify-between gap-gutter-md cursor-pointer list-none">
+                <span class="font-title text-title-md text-light-primary">Meu trauma foi grave. Isso basta.</span>
+                <span class="material-symbols-outlined text-light-primary transition-transform duration-state-change group-open:rotate-180" aria-hidden="true">expand_more</span>
+              </summary>
+              <div class="pt-gutter-sm">
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">Para traumas graves, o guia funciona como aliado, não como substituto de terapia. O próprio material orienta a buscar terapeuta ou psiquiatra nesses casos.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- OFERTA FINAL (footer navy com degradê) -->
+    <footer id="oferta-final" class="grad-footer text-on-navy py-section" data-od-id="fechamento">
+      <div class="max-w-3xl mx-auto px-page-margin flex flex-col items-center text-center gap-gutter-lg">
+        <div class="flex flex-col gap-gutter-sm">
+          <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-on-navy">
+            Oferta final
+          </h2>
+          <p class="font-body text-body-md text-on-navy-muted text-pretty">
+            Guia em PDF com 87 páginas e exercícios aplicados · Áudio de auto-hipnose de 30 minutos · Bônus Cartas de Cura · Bônus mapa dos 5 traumas
+          </p>
+        </div>
+
+        <div class="flex items-center gap-gutter-sm">
+          <span class="font-body text-body-sm text-on-navy-muted">De <s>R$ 248</s> por</span>
+          <span class="font-display text-display-lg-mobile md:text-display-lg text-on-navy tabular-nums">R$47</span>
+          <span class="font-body text-body-sm text-on-navy-muted">à vista</span>
+        </div>
+
+        <a href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="fechamento-cta" class="inline-flex items-center justify-center gap-gutter-sm px-gutter-xl py-gutter-md rounded-DEFAULT bg-emerald-cta text-on-emerald font-label hover:bg-emerald-cta-hover transition-colors duration-state-change shadow-lg">
+          <span class="font-label text-label-lg">Quero meu guia e meu áudio agora</span>
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+        </a>
+
+        <p class="font-body text-body-sm text-on-navy-muted pt-gutter-lg border-t border-navy-border/60 w-full">
+          Download imediato · Garantia de 7 dias · Ao continuar, você concorda com os termos de uso e a política de privacidade.
+        </p>
       </div>
+    </footer>
+
+  </div>
+
+  <div id="barra-fixa" data-od-id="barra-fixa">
+    <div class="flex flex-col leading-tight">
+      <strong class="font-title text-title-md text-light-primary text-[15px]">Guia + áudio + 3 bônus</strong>
+      <small class="font-body text-body-sm text-light-on-surface-variant">De R$ 248 por <strong class="text-light-primary">R$47</strong></small>
     </div>
-    <div class="bonus-card reveal" data-od-id="bonus-2">
-      <img src="assets/bonus-cartas.jpg" alt="Cartas de Cura" width="1024" height="1024" loading="lazy">
-      <div class="corpo">
-        <h3>Bônus 2. Cartas de Cura.</h3>
-        <p>7 cartas guiadas para conversar com sua criança interior — uma para cada ferida — com frases-guia para preencher e espaço para a resposta dela.</p>
-        <div class="trava">Resolve a trava da página em branco.</div>
-        <div class="rodape"><span class="valor">R$ 47</span><span class="pill-incluso">Incluso</span></div>
-      </div>
-    </div>
-    <div class="bonus-card reveal" data-od-id="bonus-3">
-      <img src="assets/bonus-mapa.jpg" alt="Mapa dos 5 traumas" width="1024" height="1024" loading="lazy">
-      <div class="corpo">
-        <h3>Bônus 3. Mapa dos 5 Traumas.</h3>
-        <p>Ficha por trauma (negligência, abuso, violência presenciada, perda, ser diferente) com checklist de sinais adultos, nota de 0 a 10 e seu mapa final de por onde começar.</p>
-        <div class="trava">Resolve a dúvida sobre por onde começar.</div>
-        <div class="rodape"><span class="valor">R$ 37</span><span class="pill-incluso">Incluso</span></div>
-      </div>
-    </div>
+    <a href="https://pay.kiwify.com.br/GhPs2mQ" class="cta-barra ml-auto inline-flex items-center justify-center px-gutter-lg py-gutter-sm rounded-DEFAULT bg-emerald-cta text-on-emerald font-label text-label-md hover:bg-emerald-cta-hover transition-colors duration-state-change">Quero meu guia</a>
   </div>
-</div></section>
-
-<section id="bloco-10" data-od-id="depoimentos-resultado"><div class="wrap">
-  <span class="selo-claro reveal">Antes e depois</span>
-  <h2 class="reveal" style="margin-top:14px">Quem aplicou o método conta o antes e o depois</h2>
-  <div class="dep reveal" data-od-id="resultado-1">
-    <p><span class="quem">Antes:</span> chorava escondida depois de brigar com os filhos por motivos pequenos, com culpa acumulada há 4 anos.<br><span class="quem">Virada:</span> fez o exercício do diálogo com a foto na primeira semana e nomeou em voz alta a ferida da crítica constante.<br><span class="quem">Resultado:</span> em 2 meses, as brigas caíram para <strong>quase zero</strong> e ela descreve a casa como <strong>leve pela primeira vez</strong>.</p>
-    <div class="fila-resultado"><span class="chip">Brigas quase zero</span><span class="chip">Casa leve</span></div>
-  </div>
-  <div class="dep reveal" data-od-id="resultado-2">
-    <p><span class="quem">Antes:</span> aceitava todo projeto no trabalho, dormia 5 horas por noite e vivia exausto há 2 anos.<br><span class="quem">Virada:</span> identificou o padrão do apaziguador no mapa dos 5 traumas e escreveu os primeiros limites no papel.<br><span class="quem">Resultado:</span> em 90 dias, <strong>recusou 3 projetos sem culpa</strong> e voltou a dormir <strong>7 horas por noite</strong>.</p>
-    <div class="fila-resultado"><span class="chip">3 projetos recusados</span><span class="chip">Dorme 7 horas</span></div>
-  </div>
-  <div class="dep reveal" data-od-id="resultado-3">
-    <p><span class="quem">Antes:</span> terminava todo relacionamento antes dos 6 meses, com medo de ser abandonada primeiro, por 5 anos seguidos.<br><span class="quem">Virada:</span> atravessou as 4 etapas do perdão e escreveu a nova narrativa em 6 passos.<br><span class="quem">Resultado:</span> está há <strong>8 meses no relacionamento mais estável da vida adulta</strong>, com conversas difíceis <strong>sem fuga</strong>.</p>
-    <div class="fila-resultado"><span class="chip">8 meses estáveis</span><span class="chip">Conversas sem fuga</span></div>
-  </div>
-</div></section>
-
-<section id="bloco-09" class="banda-forte" data-od-id="oferta"><div class="wrap">
-  <div class="stack reveal" data-od-id="stack-preco">
-    <h2>O pacote completo, somado item por item</h2>
-    <p class="sub-stack">Guia + áudio + 3 bônus, tudo liberado no mesmo acesso</p>
-    <div class="oferta">
-      <div class="livro"><img src="assets/capa2.jpg" alt="Guia em PDF, 87 páginas" width="172" height="235"></div>
-      <div class="tile-bonus tb1"><img src="assets/bonus-audio.jpg" alt="Bônus 1, áudio de auto-hipnose" loading="lazy"><span class="selo-tile">BÔNUS 1</span><strong>Auto-hipnose</strong><small>áudio 30 min</small></div>
-      <div class="tile-bonus tb2"><img src="assets/bonus-cartas.jpg" alt="Bônus 2, Cartas de Cura" loading="lazy"><span class="selo-tile">BÔNUS 2</span><strong>Cartas de Cura</strong><small>7 cartas</small></div>
-      <div class="tile-bonus tb3"><img src="assets/bonus-mapa.jpg" alt="Bônus 3, mapa dos 5 traumas" loading="lazy"><span class="selo-tile">BÔNUS 3</span><strong>Mapa 5 traumas</strong><small>checklist</small></div>
-    </div>
-    <table>
-      <tr><td>Guia em PDF, 87 páginas</td><td>R$ 97</td></tr>
-      <tr><td>Bônus 1, áudio de auto-hipnose (30 min)</td><td>R$ 67</td></tr>
-      <tr><td>Bônus 2, Cartas de Cura</td><td>R$ 47</td></tr>
-      <tr><td>Bônus 3, mapa dos 5 traumas</td><td>R$ 37</td></tr>
-      <tr class="total"><td>Valor total</td><td>R$ 248</td></tr>
-    </table>
-    <p class="preco"><span class="ancora">Preço hoje</span><s>R$ 248</s> <strong>R$47</strong> à vista</p>
-    <p class="cta-centro" style="margin:0"><a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="oferta-cta">Quero meu guia e meu áudio agora
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
-    <p class="linha-cta" style="color:#9dbcd9;position:relative"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5fb0f5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Compra segura · Download imediato · Garantia de 7 dias</p>
-  </div>
-</div></section>
-
-<section id="bloco-11" class="banda" data-od-id="suporte-e-garantia"><div class="wrap">
-  <div class="suporte-livre reveal" data-od-id="suporte">
-    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Você não atravessa sozinho</h3>
-    <p>Suporte por email para dúvidas sobre acesso, download e aplicação dos exercícios. Resposta em dias úteis, direto com a equipe do Sergio. O guia foi escrito para aplicação solo, e o email existe para nenhum leitor travar no caminho.</p>
-  </div>
-  <div class="card-simples garantia-secao reveal" data-od-id="garantia-card" style="text-align:left">
-    <h3 style="text-align:center" data-od-id="garantia-titulo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Risco zero por 7 dias</h3>
-    <img src="assets/garantia-7-dias.webp" alt="Garantia incondicional de 7 dias" class="selo-garantia" loading="lazy">
-    <p><strong style="color:var(--ink)">Garantia incondicional de 7 dias.</strong> Você baixa, lê, ouve e aplica. Se em qualquer momento dentro dos 7 primeiros dias decidir que não é para você, devolvemos 100% do valor pago. Sem pergunta, sem formulário, sem burocracia.</p>
-  </div>
-</div></section>
-
-<section id="bloco-13" data-od-id="autor"><div class="wrap">
-  <span class="selo-claro reveal">Autor</span>
-  <h2 class="reveal" style="margin-top:14px">Quem organizou esse caminho</h2>
-  <div class="autor reveal" data-od-id="autor-card">
-    <img src="assets/eu.jpg" alt="Sergio Lima, autor do guia" width="132" height="132" loading="lazy">
-    <div>
-      <p><strong>Sergio Lima</strong> é o autor do Guia Definitivo Para Curar Sua Criança Interior e estruturou o Método Fios Invisíveis em etapas aplicáveis: 5 exercícios de conexão, 8 passos de reeducação, 4 etapas de perdão e 6 passos de reescrita. Cada técnica do guia vem com instrução de aplicação, não só teoria.</p>
-    </div>
-  </div>
-  <p class="pequeno reveal" style="text-align:center">Este bloco cresce com a história de origem e números do trabalho do Sergio — pendente de envio.</p>
-</div></section>
-
-<section id="bloco-14" class="banda" data-od-id="faq"><div class="wrap faq">
-  <span class="selo-claro reveal">FAQ</span>
-  <h2 class="reveal" style="margin-top:14px">Dúvidas antes de começar</h2>
-  <details class="reveal" data-od-id="faq-1" open>
-    <summary>Quanto tempo por dia eu preciso dedicar.<span class="mais">+</span></summary>
-    <p>De 10 a 15 minutos. Um exercício por vez, sem prazo. Leitores que seguem esse ritmo concluem a primeira virada ainda na primeira semana.</p>
-  </details>
-  <details class="reveal" data-od-id="faq-2">
-    <summary>R$ 47 é barato demais para funcionar.<span class="mais">+</span></summary>
-    <p>O preço baixo é decisão de alcance, não medida de profundidade. São 87 páginas e 30 minutos de áudio pelo valor de uma pizza, com garantia de 7 dias cobrindo o risco.</p>
-  </details>
-  <details class="reveal" data-od-id="faq-3">
-    <summary>Nunca fiz terapia e não entendo nada de psicologia.<span class="mais">+</span></summary>
-    <p>O guia foi escrito sem jargão, com instrução passo a passo e um áudio que conduz pela mão. O único pré-requisito é saber ler e reservar 15 minutos.</p>
-  </details>
-  <details class="reveal" data-od-id="faq-4">
-    <summary>E se eu comprar e não servir para o meu caso.<span class="mais">+</span></summary>
-    <p>A garantia incondicional de 7 dias devolve 100% do valor sem perguntas. O risco fica todo com quem vende.</p>
-  </details>
-  <details class="reveal" data-od-id="faq-5">
-    <summary>Qual a diferença deste guia para conteúdo gratuito sobre criança interior.<span class="mais">+</span></summary>
-    <p>Conteúdo solto explica o conceito e para por aí. Aqui cada capítulo termina em exercício aplicado, com ordem, prazo de releitura e medida de progresso.</p>
-  </details>
-  <details class="reveal" data-od-id="faq-6">
-    <summary>Meu trauma foi grave. Isso basta.<span class="mais">+</span></summary>
-    <p>Para traumas graves, o guia funciona como aliado, não como substituto de terapia. O próprio material orienta a buscar terapeuta ou psiquiatra nesses casos.</p>
-  </details>
-</div></section>
-
-<section id="bloco-15" class="fechar" data-od-id="fechamento"><div class="wrap">
-  <h2 class="reveal">Oferta final</h2>
-  <p class="reveal">Guia em PDF com 87 páginas e exercícios aplicados · Áudio de auto-hipnose de 30 minutos · Bônus Cartas de Cura · Bônus mapa dos 5 traumas</p>
-  <p class="preco reveal">De <s>R$ 248</s> por <strong>R$47</strong> à vista</p>
-  <p class="cta-centro reveal"><a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="fechamento-cta">Quero meu guia e meu áudio agora
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
-  <p class="pequeno reveal">Download imediato · Garantia de 7 dias · Ao continuar, você concorda com os termos de uso e a política de privacidade.</p>
-</div></section>
-
-<div id="barra-fixa" data-od-id="barra-fixa">
-  <div class="info"><strong>Guia + áudio + 3 bônus</strong><small>De R$ 248 por <strong style="display:inline;font-size:12.5px">R$47</strong></small></div>
-  <a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ">Quero meu guia</a>
-</div>
 
 <script>
 (function(){
@@ -606,7 +912,7 @@ a{color:var(--azul)}
     var p=h.scrollTop/(h.scrollHeight-h.clientHeight);
     prog.style.width=(p*100)+'%';
     var heroFim=hero.getBoundingClientRect().bottom;
-    var fimCta=document.getElementById('bloco-15').getBoundingClientRect().top<h.clientHeight*0.7;
+    var fimCta=document.getElementById('oferta-final').getBoundingClientRect().top<h.clientHeight*0.7;
     barra.classList.toggle('on',heroFim<0&&!fimCta);
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
@@ -619,7 +925,7 @@ a{color:var(--azul)}
       ck.addEventListener('change',function(){
         var n=document.querySelectorAll('input[data-ck]:checked').length;
         cont.textContent=n;
-        msg.classList.toggle('on',n>0);
+        msg.classList.toggle('off',n===0);
       });
     });
   }
@@ -632,11 +938,11 @@ a{color:var(--azul)}
       f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
       f.setAttribute('allowfullscreen','');
       f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      f.className='absolute inset-0 w-full h-full';
       fach.parentNode.replaceChild(f,fach);
     });
   }
 })();
 </script>
 
-</body>
-</html>
+</body></html>
