@@ -868,5 +868,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 })();
 </script>
+<script>
+(function(){
+  Array.prototype.forEach.call(document.querySelectorAll('a[href*="wa.me"]'),function(a){
+    a.addEventListener('click',function(){
+      try{
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({event:'WhatsappEbookCrianca'});
+      }catch(err){}
+    });
+  });
+})();
+</script>
 
 </body></html>
