@@ -878,6 +878,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }catch(err){}
     });
   });
+  Array.prototype.forEach.call(document.querySelectorAll('a[href*="pay.kiwify"],a[href*="kiwify"]'),function(a){
+    a.addEventListener('click',function(){
+      try{
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({event:'CliqueCheckoutEbookCrianca'});
+      }catch(err){}
+    });
+  });
 })();
 </script>
 
